@@ -20,6 +20,19 @@ app.get('/',function(req,res,next){
 
 app.get('/highscore',function(req,res,next){
   res.render('highScore');
+  /* Will need to uncomment this out once db is built
+  var context = {};
+  mysql.pool.query("SELECT * \
+  FROM team;",
+  function(err, rows, fields) {
+    if(err) {
+      next(err);
+      return;
+    }
+    context.results = rows;
+    res.render('teams', context);
+  });
+  */
 });
 
 app.use(function(req,res){
