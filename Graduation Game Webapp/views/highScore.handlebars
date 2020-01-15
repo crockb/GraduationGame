@@ -1,30 +1,18 @@
 <!DOCTYPE html>
 <h1>High Scores</h1>
-<a href='coaches-new'>Add new coach</a>
 <br>
 <br>
 <table style="width:100%" class="table table-striped">
   <tr>
     <th>First Name</th>
     <th>Last Name</th>
-    <th>Title</th>
-    <th>Team</th>
-    <th></th>
+    <th>Score</th>
   </tr>
   {{#each results}}
   <tr id={{this.coachID}}>
     <td id="firstName" contenteditable="true" onblur="editCoachRow()">{{this.firstName}}</td>
     <td id="lastName" contenteditable="true" onblur="editCoachRow()">{{this.lastName}}</td>
     <td id="title" contenteditable="true" onblur="editCoachRow()">{{this.title}}</td>
-    <td id="teamID">
-      <select onchange="editCoachDropdown()" name="team">
-        <option value={{this.teamID}}>{{this.teamName}}</option>
-        <option value="-1">Free Agent</option>
-        {{#each ../teams}}
-        <option value={{this.tID}}>{{this.tName}}</option>
-        {{/each}}
-      </select>
-    </td>
     <td>
       <input id="delete" type="button" value="Delete" onclick="deleteCoachRow()">
     </td>
