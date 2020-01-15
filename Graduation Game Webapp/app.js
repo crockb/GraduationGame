@@ -18,6 +18,10 @@ app.get('/',function(req,res,next){
   res.render('home');
 });
 
+app.get('/highscore',function(req,res,next){
+  res.render('highScore');
+});
+
 app.use(function(req,res){
   res.status(404);
   res.render('404');
