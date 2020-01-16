@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<h1>High Scores</h1>
+<br>
+<br>
+<table style="width:100%" class="table table-striped">
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Score</th>
+  </tr>
+  {{#each results}}
+  <tr id={{this.coachID}}>
+    <td id="firstName" contenteditable="true" onblur="editCoachRow()">{{this.firstName}}</td>
+    <td id="lastName" contenteditable="true" onblur="editCoachRow()">{{this.lastName}}</td>
+    <td id="title" contenteditable="true" onblur="editCoachRow()">{{this.title}}</td>
+    <td>
+      <input id="delete" type="button" value="Delete" onclick="deleteCoachRow()">
+    </td>
+  </tr>
+  {{/each}}
+</table>
+<script src="editTable.js"></script>
