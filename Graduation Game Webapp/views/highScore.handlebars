@@ -10,9 +10,9 @@
   </tr>
   {{#each results}}
   <tr id={{this.coachID}}>
-    <td id="firstName" contenteditable="true" onblur="editCoachRow()">{{this.firstName}}</td>
-    <td id="lastName" contenteditable="true" onblur="editCoachRow()">{{this.lastName}}</td>
-    <td id="title" contenteditable="true" onblur="editCoachRow()">{{this.title}}</td>
+    <td id="firstName" contenteditable="true" onblur="editCoachRow()">{{this.first_name}}</td>
+    <td id="lastName" contenteditable="true" onblur="editCoachRow()">{{this.last_name}}</td>
+    <td id="title" contenteditable="true" onblur="editCoachRow()">{{this.score}}</td>
     <td>
       <input id="delete" type="button" value="Delete" onclick="deleteCoachRow()">
     </td>
