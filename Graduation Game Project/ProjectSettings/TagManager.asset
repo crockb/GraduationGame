@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - GraduationCoinsLabel
   layers:
   - Default
   - TransparentFX
@@ -40,4 +41,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 436416769
+    locked: 0
+  - name: In-Game Menu
+    uniqueID: 2583271087
+    locked: 0
+  - name: Students
+    uniqueID: 406153567
     locked: 0
