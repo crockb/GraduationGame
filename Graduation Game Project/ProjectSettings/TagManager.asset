@@ -39,11 +39,11 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Background
     uniqueID: 436416769
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
   - name: Towers
     uniqueID: 2842777397
