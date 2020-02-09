@@ -48,9 +48,9 @@ TagManager:
   - name: Towers
     uniqueID: 2842777397
     locked: 0
-  - name: In-Game Menu
-    uniqueID: 2583271087
-    locked: 0
   - name: Students
     uniqueID: 406153567
+    locked: 0
+  - name: In-Game Menu
+    uniqueID: 2583271087
     locked: 0
