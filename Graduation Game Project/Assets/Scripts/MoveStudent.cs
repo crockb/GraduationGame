@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class MoveStudent : MonoBehaviour
 {
-	public int StartElement = 0;
+	public int StartElement;
 	public GameObject[] Waypoints;
-	public float Speed = 1.0f;
+	public float Speed;
 	private float lastWaypointSwitchTime;
 	
     // Start is called before the first frame update
@@ -44,4 +44,9 @@ public class MoveStudent : MonoBehaviour
 		  	}
 		}
     }
+
+	public GameObject[] GetPath()
+	{
+		return Waypoints;
+	}
 }

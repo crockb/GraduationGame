@@ -8,14 +8,13 @@ public class SpawnStudent : MonoBehaviour
 	public GameObject ObjectToSpawn;
     public int NumberObjectsToSpawn;
     public float SpawnFrequencySeconds;
-    public Transform ParentCanvas;
     
-    private int objectsSpawned = 1; // One is already created
+    private int objectsSpawned = 0; // One is already created
     private float nextSpawnTime;
     // Start is called before the first frame update
     void Start()
     {
-        //Instantiate(ObjectToSpawn).GetComponent<MoveStudent>().Waypoints = Waypoints;
+        spawnStudent();
         // This is the time that the next object will be spawned
         nextSpawnTime = Time.time + SpawnFrequencySeconds;
     }
@@ -26,11 +25,14 @@ public class SpawnStudent : MonoBehaviour
         // Check to make sure enough time has passed and that we are under the object spawn limit
         if (Time.time > nextSpawnTime && objectsSpawned < NumberObjectsToSpawn)
         {
-            var clone = Instantiate(ObjectToSpawn);
-            clone.transform.SetParent(ParentCanvas); // Doing this because of layering issues
-            clone.GetComponent<MoveStudent>().Waypoints = Waypoints;
-            objectsSpawned++;
+            spawnStudent();
             nextSpawnTime += SpawnFrequencySeconds;
         }
+    }
+
+    private void spawnStudent()
+    {
+        Instantiate(ObjectToSpawn).GetComponent<MoveStudent>().Waypoints = Waypoints;
+        objectsSpawned++;
     }
 }
