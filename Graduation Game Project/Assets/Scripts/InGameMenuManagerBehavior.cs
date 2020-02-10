@@ -9,15 +9,15 @@ public class InGameMenuManagerBehavior : MonoBehaviour
 	private int graduationCoins;
 
 	public int GraduationCoins {
-	  get
-	  { 
-	    return graduationCoins;
-	  }
-	  set
-	  {
-	    graduationCoins = value;
-	    graduationCoinsLabel.GetComponent<Text>().text = "$" + graduationCoins;
-	  }
+	  	get
+	  	{ 
+	    	return graduationCoins;
+	  	}
+	  	set
+	  	{
+	    	graduationCoins = value;
+	    	graduationCoinsLabel.GetComponent<Text>().text = "$" + graduationCoins;
+	  	}
 	}
 
 
@@ -33,5 +33,4 @@ public class InGameMenuManagerBehavior : MonoBehaviour
     {
         
     }
-
 }
