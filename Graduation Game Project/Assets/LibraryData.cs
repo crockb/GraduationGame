@@ -1,4 +1,3 @@
-﻿
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,6 +19,24 @@ public class LibraryData : MonoBehaviour
 
 
     //1
+    // Use this for initialization
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    void OnEnable()
+    {
+        CurrentLevel = levels[0];
+    }
+
+     //1
     public LibraryLevel CurrentLevel
     {
         //2
@@ -68,7 +85,7 @@ public class LibraryData : MonoBehaviour
         CurrentLevel = levels[0];
     }
 
-    public LibraryLevel getNextLevel()
+    public LibraryLevel GetNextLevel()
     {
         int currentLevelIndex = levels.IndexOf(currentLevel);
         int maxLevelIndex = levels.Count - 1;
@@ -82,7 +99,7 @@ public class LibraryData : MonoBehaviour
         }
     }
 
-    public void increaseLevel()
+    public void IncreaseLevel()
     {
         int currentLevelIndex = levels.IndexOf(currentLevel);
         if (currentLevelIndex < levels.Count - 1)

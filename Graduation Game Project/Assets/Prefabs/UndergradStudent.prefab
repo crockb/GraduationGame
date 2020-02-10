@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6207614991194224215}
   - component: {fileID: 8427803920762228485}
   - component: {fileID: 7999099224249147722}
+  - component: {fileID: 499685600114865560}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -81,6 +82,7 @@ SpriteRenderer:
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &7999099224249147722
+--- !u!95 &499685600114865560
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -94,6 +96,7 @@ Animator:
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -114,6 +117,10 @@ GameObject:
   - component: {fileID: 50548453076381010}
   - component: {fileID: 58695912430403532}
   - component: {fileID: 114247426620377332}
+  - component: {fileID: 50548453076381010}
+  - component: {fileID: 58695912430403532}
+  - component: {fileID: 114247426620377332}
+  - component: {fileID: 1449099083916348777}
   m_Layer: 0
   m_Name: UndergradStudent
   m_TagString: Student
@@ -195,6 +202,7 @@ Animator:
   m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 534a5890082d647b68ea31e5be67005c, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -266,3 +274,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27021a61236054d7fa80d857efa7f5e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Script: {fileID: 11500000, guid: eb42ece18443442c9b7c525e17d87114, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints: []
+  speed: 1
+--- !u!114 &1449099083916348777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5324748047884064577}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfaf0593de9e6ba408229edde9d46dad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints: []
+  testStudentPrefab: {fileID: 0}
