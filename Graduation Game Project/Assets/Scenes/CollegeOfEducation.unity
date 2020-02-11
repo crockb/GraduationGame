@@ -552,8 +552,10 @@ MonoBehaviour:
   - {fileID: 1131467109}
   - {fileID: 600296431}
   - {fileID: 1348274954}
-  testStudentPrefab: {fileID: 1945090372486299912, guid: d1fb0d95ff5f64bbd992eff1f2de3b1e,
+  ObjectToSpawn: {fileID: 1945090372486299912, guid: d1fb0d95ff5f64bbd992eff1f2de3b1e,
     type: 3}
+  NumberObjectsToSpawn: 5
+  SpawnFrequencySeconds: 1
 --- !u!1 &234171444
 GameObject:
   m_ObjectHideFlags: 0
