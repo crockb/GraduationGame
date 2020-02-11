@@ -613,20 +613,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfaf0593de9e6ba408229edde9d46dad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 1632133239}
-  - {fileID: 254827813}
-  - {fileID: 1981235961}
-  - {fileID: 2015168248}
-  - {fileID: 217562537}
-  - {fileID: 809690060}
-  - {fileID: 1877304088}
-  - {fileID: 650643865}
-  - {fileID: 340125560}
-  - {fileID: 2143148285}
-  - {fileID: 1208796274}
-  - {fileID: 1412165541}
-  testStudentPrefab: {fileID: 1919582388}
+  waypoints: []
+  testStudentPrefab: {fileID: 0}
 --- !u!1 &217562537
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,7 +695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1336,6 +1324,7 @@ MonoBehaviour:
   graduationCoinsLabel: {fileID: 107793933}
   waveCountLabel: {fileID: 575309451}
   nextWaveLabel: {fileID: 1464576130}
+  gameOver: 0
 --- !u!4 &560380639
 Transform:
   m_ObjectHideFlags: 0
@@ -2838,6 +2827,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 805153823247514254, guid: e57f72e336eb23d43b10bdd28ce495cc,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4127142147285524705, guid: e57f72e336eb23d43b10bdd28ce495cc,
         type: 3}
       propertyPath: m_Name
@@ -3235,7 +3229,7 @@ PrefabInstance:
     - target: {fileID: 5941312884201014923, guid: 9057af869149ac5408f241704c685375,
         type: 3}
       propertyPath: m_SortingLayer
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8986421952015812319, guid: 9057af869149ac5408f241704c685375,
         type: 3}
@@ -4550,12 +4544,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1891983530}
   m_CullTransparentMesh: 0
---- !u!1 &1919582388 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4127142147285524705, guid: e57f72e336eb23d43b10bdd28ce495cc,
-    type: 3}
-  m_PrefabInstance: {fileID: 1183360355}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1950982544
 GameObject:
   m_ObjectHideFlags: 0

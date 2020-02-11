@@ -15,7 +15,7 @@ public class Wave
 
 public class BusinessSpawnStudents : MonoBehaviour
 {
-	/*
+/*
 	public Wave[] waves;
 	public int timeBetweenWaves = 5;
 
@@ -24,6 +24,7 @@ public class BusinessSpawnStudents : MonoBehaviour
 	private float lastSpawnTime;
 	private int studentsSpawned;
 */
+
 	public GameObject[] waypoints;
 	public GameObject testStudentPrefab;
 	private int i = 0;
@@ -32,11 +33,13 @@ public class BusinessSpawnStudents : MonoBehaviour
     void Start()
     {
 
-/*
+    	/*
+
     	lastSpawnTime = Time.time;
     	gameManager = GameObject.Find("GameManager").GetComponent<InGameMenuManagerBehavior>();
+		
+		*/
 
-*/
     	testStudentPrefab = GameObject.Find("UnderGrad(DEV)");
     	waypoints = new GameObject[12];
     	foreach(Transform child in transform)
@@ -46,6 +49,8 @@ public class BusinessSpawnStudents : MonoBehaviour
     	}
 
         Instantiate(testStudentPrefab).GetComponent<BusinessMoveStudents>().waypoints = waypoints;
+
+
     }
 
     // Update is called once per frame
