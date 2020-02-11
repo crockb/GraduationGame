@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/StartMenu.unity
+    guid: ba6de062aeb16584f8988108211d859f
+  - enabled: 1
+    path: Assets/Scenes/WildlifeSciences.unity
+    guid: 61db7a56b04ef4cc9919ecde80109014
+  - enabled: 1
+    path: Assets/Scenes/CollegeOfBusiness.unity
+    guid: 5f830f0bc5c449949a5190916326fd83
+  - enabled: 1
+    path: Assets/Scenes/HighScore.unity
+    guid: 2d51ea6397eb841f2b055ad9364757aa
   m_configObjects: {}
