@@ -17,4 +17,14 @@ public class MainMenu : MonoBehaviour
 		Application.Quit();
 	}
 
+	public void PlayWildlifeSciences()
+	{
+		SceneManager.LoadScene(1);
+	}
+
+		public void PlayCollegeOfBusiness()
+	{
+		SceneManager.LoadScene(2);
+	}
+
 }
