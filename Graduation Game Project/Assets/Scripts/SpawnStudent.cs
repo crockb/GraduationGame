@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class SpawnStudent : MonoBehaviour
 {
-	public GameObject[] waypoints;
+	public GameObject[] Waypoints;
 	public GameObject testStudentPrefab;
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(testStudentPrefab).GetComponent<MoveStudent>().waypoints = waypoints;
+        Instantiate(testStudentPrefab).GetComponent<MoveStudent>().Waypoints = Waypoints;
     }
 
     // Update is called once per frame

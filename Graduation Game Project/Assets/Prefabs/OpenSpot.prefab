@@ -92,5 +92,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c7e3ad69c3eb4252921fc70ec91e6e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 2470463452414888322, guid: e8fc539d510fd41358a96c352beeaccc,
+  starbucksPrefab: {fileID: 2470463452414888322, guid: e8fc539d510fd41358a96c352beeaccc,
+    type: 3}
+  libraryPrefab: {fileID: 63070631789792785, guid: 057cd47f1e42d8a438c4d632552f80e0,
+    type: 3}
+  examroomPrefab: {fileID: 4558289984748759833, guid: 8de0f5c4f60948840bf14af5c2f19dab,
     type: 3}

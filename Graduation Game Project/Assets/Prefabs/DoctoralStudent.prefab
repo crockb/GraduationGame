@@ -112,11 +112,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 6548965246529103440}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90e6fee31598e4a4ea26c9fcc9271d86, type: 3}
+  m_Script: {fileID: 11500000, guid: f320610a5202f463d95611b2a7e3cd8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints: []
-  speed: 3
+  StartElement: 0
+  Waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Speed: 1
 --- !u!58 &58841463547309378
 CircleCollider2D:
   m_ObjectHideFlags: 0
