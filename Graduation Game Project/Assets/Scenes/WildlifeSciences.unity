@@ -709,9 +709,10 @@ MonoBehaviour:
   - {fileID: 1233192395}
   - {fileID: 1985826850}
   - {fileID: 155250484}
-  ObjectToSpawn: {fileID: 0}
-  NumberObjectsToSpawn: 0
-  SpawnFrequencySeconds: 0
+  ObjectToSpawn: {fileID: 1945090372486299912, guid: d1fb0d95ff5f64bbd992eff1f2de3b1e,
+    type: 3}
+  NumberObjectsToSpawn: 5
+  SpawnFrequencySeconds: 3
 --- !u!1 &1829992939
 GameObject:
   m_ObjectHideFlags: 0
