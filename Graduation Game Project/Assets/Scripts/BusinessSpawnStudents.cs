@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
-
 [System.Serializable]
 public class Wave
 {
@@ -18,9 +17,7 @@ public class BusinessSpawnStudents : MonoBehaviour
 /*
 	public Wave[] waves;
 	public int timeBetweenWaves = 5;
-
 	private InGameMenuManagerBehavior gameManager;
-
 	private float lastSpawnTime;
 	private int studentsSpawned;
 */
@@ -34,7 +31,6 @@ public class BusinessSpawnStudents : MonoBehaviour
     {
 
     	/*
-
     	lastSpawnTime = Time.time;
     	gameManager = GameObject.Find("GameManager").GetComponent<InGameMenuManagerBehavior>();
 		
