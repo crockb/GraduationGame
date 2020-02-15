@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 1707926919071556161}
   m_Layer: 0
   m_Name: UndergradStudent
-  m_TagString: Untagged
+  m_TagString: Student
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartElement: 0
   Waypoints: []
-  Speed: 0
+  Speed: 1
 --- !u!50 &4533361136093895253
 Rigidbody2D:
   serializedVersion: 4

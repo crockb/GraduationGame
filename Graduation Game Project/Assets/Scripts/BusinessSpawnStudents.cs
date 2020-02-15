@@ -51,7 +51,7 @@ public class BusinessSpawnStudents : MonoBehaviour
 		    GameObject newStudent = (GameObject)
 		        Instantiate(waves[currentWave].studentPrefab);
 
-    		newStudent.GetComponent<BusinessMoveStudents>().waypoints = waves[currentWave].waypoints;
+    		newStudent.GetComponent<MoveStudent>().Waypoints = waves[currentWave].waypoints;
 		    studentsSpawned++;
 		  }
 		  // 4 
@@ -75,40 +75,3 @@ public class BusinessSpawnStudents : MonoBehaviour
 
     }
 }
-
-
-/* WORKING FOR 1 STUDUENT TO SPAWN 
-
-public class BusinessSpawnStudents : MonoBehaviour
-{
-
-
-	public GameObject[] waypoints;
-	//public GameObject testStudentPrefab;
-
-	public GameObject studentPrefab;
-	private int i = 0;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    	//testStudentPrefab = GameObject.Find("UnderGrad(DEV)");
-
-    	GameObject newStudent = (GameObject)
-    		Instantiate(studentPrefab);
-
-    	// set the waypoints
-    	waypoints = new GameObject[12];
-    	foreach(Transform child in transform)
-    	{
-    		waypoints[i] = GameObject.Find(child.name);
-    		i++;
-    	}
-
-    	newStudent.GetComponent<BusinessMoveStudents>().waypoints = waypoints;
-
-        //Instantiate(testStudentPrefab).GetComponent<BusinessMoveStudents>().waypoints = waypoints;
-    }
-
- */
