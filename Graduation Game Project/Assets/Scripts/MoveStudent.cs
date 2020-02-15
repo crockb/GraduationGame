@@ -18,6 +18,7 @@ public class MoveStudent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    	RotateIntoMoveDirection();
         Vector3 startPosition = Waypoints[StartElement].transform.position;
 		Vector3 endPosition = Waypoints[StartElement + 1].transform.position;
 
@@ -32,7 +33,6 @@ public class MoveStudent : MonoBehaviour
 			{
 		    	StartElement++;
 		    	lastWaypointSwitchTime = Time.time;
-		    	// TODO: Rotate into move direction
 		  	}
 		  	else
 		  	{
@@ -49,4 +49,21 @@ public class MoveStudent : MonoBehaviour
 	{
 		return Waypoints;
 	}
+
+	private void RotateIntoMoveDirection()
+	{
+	  // set the positions of the next way points
+	  Vector3 newStartPosition = Waypoints[StartElement].transform.position;
+	  Vector3 newEndPosition = Waypoints[StartElement + 1].transform.position;
+	  Vector3 newDirection = (newEndPosition - newStartPosition);
+
+	  // set the position to turn the student
+	  float x = newDirection.x;
+	  float y = newDirection.y;
+	  float rotationAngle = Mathf.Atan2 (y, x) * 180 / Mathf.PI;
+	  
+	  // turn the student (add 90 to account for bottom facing start position)
+	  this.transform.rotation = Quaternion.AngleAxis(rotationAngle + 90, Vector3.forward);
+	}
+
 }

@@ -72,6 +72,5 @@ public class BusinessSpawnStudents : MonoBehaviour
 		  //GameObject gameOverText = GameObject.FindGameObjectWithTag ("GameWon");
 		  //gameOverText.GetComponent<Animator>().SetBool("gameOver", true);
 		}
-
     }
 }
