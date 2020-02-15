@@ -51,6 +51,8 @@ public class BusinessSpawnStudents : MonoBehaviour
 		    GameObject newStudent = (GameObject)
 		        Instantiate(waves[currentWave].studentPrefab);
 
+		    newStudent.transform.position = new Vector3(-1000,0,0);
+
     		newStudent.GetComponent<MoveStudent>().Waypoints = waves[currentWave].waypoints;
 		    studentsSpawned++;
 		  }
