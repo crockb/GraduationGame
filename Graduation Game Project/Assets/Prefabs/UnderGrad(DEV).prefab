@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6030972426950053828}
   - component: {fileID: 805153823247514254}
-  - component: {fileID: 3012784324312027955}
+  - component: {fileID: 114743383763992940}
   m_Layer: 0
   m_Name: UnderGrad(DEV)
   m_TagString: Student
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3012784324312027955
+--- !u!114 &114743383763992940
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,8 +89,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4127142147285524705}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 528311a2f3e18de469b1a909449412cf, type: 3}
+  m_Script: {fileID: 11500000, guid: f320610a5202f463d95611b2a7e3cd8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints: []
-  speed: 1
+  StartElement: 0
+  Waypoints: []
+  Speed: 1
