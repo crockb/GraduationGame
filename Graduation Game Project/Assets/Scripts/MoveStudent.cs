@@ -63,7 +63,8 @@ public class MoveStudent : MonoBehaviour
 	  float rotationAngle = Mathf.Atan2 (y, x) * 180 / Mathf.PI;
 	  
 	  // turn the student (add 90 to account for bottom facing start position)
-	  this.transform.rotation = Quaternion.AngleAxis(rotationAngle + 90, Vector3.forward);
+	  GameObject sprite = gameObject.transform.Find("Sprite").gameObject;
+	  sprite.transform.rotation = Quaternion.AngleAxis(rotationAngle + 90, Vector3.forward);
 	}
 
 }
