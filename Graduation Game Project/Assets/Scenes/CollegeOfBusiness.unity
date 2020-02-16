@@ -1965,7 +1965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - studentPrefab: {fileID: 6548965246529103440, guid: 82cba512bea9e4a5382a8651ad61b6c2,
+  - studentPrefab: {fileID: 1945090372486299912, guid: d1fb0d95ff5f64bbd992eff1f2de3b1e,
       type: 3}
     spawnInterval: 2.5
     maxStudents: 5
