@@ -2,7 +2,97 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
+public class InGameMenuManagerBehavior : MonoBehaviour
+{
+	public Text graduationCoinsLabel;
+	public Text waveCountLabel;
+	public Text dropOutsLabel;
+	public Text scoreLabel;
+	public GameObject nextWaveLabel;
+	public bool gameOver = false;
+	private int wave;
+
+	// set the money value in the menu
+	public int GraduationCoins {
+	  	get
+	  	{ 
+	    	return GameStats.graduationCoins;
+	  	}
+	  	set
+	  	{
+	    	GameStats.graduationCoins = value;
+	    	graduationCoinsLabel.GetComponent<Text>().text = "$" + value;
+	  	}
+	}
+
+	// set the wave value in the menu
+	public int Wave
+	{
+	  get
+	  {
+	    return wave;
+	  }
+	  set
+	  {
+	    wave = value;
+	    if (!gameOver)
+	    {
+	    	nextWaveLabel.GetComponent<Animator>().SetTrigger("nextWave");
+	    	waveCountLabel.text = (wave + 1) + "/10";
+		}
+	  }
+
+	}
+
+	// set the score value in the menu
+	public int Score
+	{
+	  	get
+	  	{ 
+	    	return GameStats.score;
+	  	}
+	  	set
+	  	{
+	    	GameStats.score = value;
+	    	scoreLabel.text = value + "";
+	  	}
+	}
+
+	// set the dropouts value in the menu
+	public int DropOuts 
+	{
+	  	get
+	  	{ 
+	    	return GameStats.dropouts;
+	  	}
+	  	set
+	  	{
+	    	GameStats.dropouts = value;
+	    	dropOutsLabel.text = (value + 1) + "/10";
+	  	}
+	}
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+		GraduationCoins = GameStats.graduationCoins;
+		DropOuts = GameStats.dropouts;
+		Score = GameStats.score;
+        Wave = 0;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
+
+// WORKING CODE BEFORE PUBLIC VARIABLE UPDATES
+/*
 public class InGameMenuManagerBehavior : MonoBehaviour
 {
 	public Text graduationCoinsLabel;
@@ -57,3 +147,5 @@ public class InGameMenuManagerBehavior : MonoBehaviour
         
     }
 }
+
+*/
