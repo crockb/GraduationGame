@@ -70,7 +70,7 @@ public class InGameMenuManagerBehavior : MonoBehaviour
 	  	set
 	  	{
 	    	GameStats.dropouts = value;
-	    	dropOutsLabel.text = (value + 1) + "/10";
+	    	dropOutsLabel.text = value + "/10";
 	  	}
 	}
 

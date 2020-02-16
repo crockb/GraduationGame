@@ -190,7 +190,6 @@ GameObject:
   - component: {fileID: 8560659573963104166}
   - component: {fileID: 4533361136093895253}
   - component: {fileID: 1707926919071556161}
-  - component: {fileID: 7734576781325898623}
   m_Layer: 0
   m_Name: UndergradStudent
   m_TagString: Student
@@ -267,20 +266,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.365
---- !u!114 &7734576781325898623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6132625103161577813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77af07438c25846b68a2e3094cb3dc84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 100
 --- !u!1 &7180982790117939110
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,6 +276,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2289951929169191319}
   - component: {fileID: 5074512863340049564}
+  - component: {fileID: 6788090475360209963}
   m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
@@ -360,3 +346,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6788090475360209963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7180982790117939110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77af07438c25846b68a2e3094cb3dc84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 100
+  healthDeclineSeconds: 0.15
