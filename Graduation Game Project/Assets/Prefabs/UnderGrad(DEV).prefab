@@ -143,7 +143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9067492579913849663}
   - component: {fileID: 3230019251981665174}
-  - component: {fileID: 4893779480227738113}
+  - component: {fileID: 7753056144458852074}
   m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
@@ -159,8 +159,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5627636241216461419}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0151, y: 0.614, z: 0}
-  m_LocalScale: {x: 71.50486, y: 1, z: 1}
+  m_LocalPosition: {x: 0.004, y: 0.614, z: 0}
+  m_LocalScale: {x: 72.38437, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1842495197616989501}
   m_RootOrder: 2
@@ -212,8 +212,8 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!114 &4893779480227738113
+  m_SpriteSortPoint: 1
+--- !u!114 &7753056144458852074
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -227,6 +227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 100
+  healthDeclineSeconds: 0.25
 --- !u!1 &6766237931090418058
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,7 +253,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6766237931090418058}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0131, y: 0.614, z: -4}
+  m_LocalPosition: {x: 0, y: 0.614, z: -4}
   m_LocalScale: {x: 0.58846706, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1842495197616989501}

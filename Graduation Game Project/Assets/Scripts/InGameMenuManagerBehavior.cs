@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class InGameMenuManagerBehavior : MonoBehaviour
 {
-	public Text graduationCoinsLabel;
+	public Text moneyLabel;
 	public Text waveCountLabel;
 	public Text dropOutsLabel;
 	public Text scoreLabel;
@@ -15,15 +15,15 @@ public class InGameMenuManagerBehavior : MonoBehaviour
 	private int wave;
 
 	// set the money value in the menu
-	public int GraduationCoins {
+	public int Money {
 	  	get
 	  	{ 
-	    	return GameStats.graduationCoins;
+	    	return GameStats.money;
 	  	}
 	  	set
 	  	{
-	    	GameStats.graduationCoins = value;
-	    	graduationCoinsLabel.GetComponent<Text>().text = "$" + value;
+	    	GameStats.money = value;
+	    	moneyLabel.GetComponent<Text>().text = "$" + value;
 	  	}
 	}
 
@@ -70,7 +70,7 @@ public class InGameMenuManagerBehavior : MonoBehaviour
 	  	set
 	  	{
 	    	GameStats.dropouts = value;
-	    	dropOutsLabel.text = (value + 1) + "/10";
+	    	dropOutsLabel.text = value + "/10";
 	  	}
 	}
 
@@ -78,7 +78,7 @@ public class InGameMenuManagerBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		GraduationCoins = GameStats.graduationCoins;
+		Money = GameStats.money;
 		DropOuts = GameStats.dropouts;
 		Score = GameStats.score;
         Wave = 0;

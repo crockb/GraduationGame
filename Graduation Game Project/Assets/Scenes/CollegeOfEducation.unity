@@ -621,8 +621,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0fa42a59dad8614aaab71afe09013d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graduationCoinsLabel: {fileID: 80353400}
+  moneyLabel: {fileID: 80353400}
   waveCountLabel: {fileID: 329785773}
+  dropOutsLabel: {fileID: 613971491}
+  scoreLabel: {fileID: 613971490}
   nextWaveLabel: {fileID: 766203235}
   gameOver: 0
 --- !u!4 &560380639
@@ -843,6 +845,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 009f774125eb12b4c81fe79d7f0fb44e, type: 3}
+--- !u!114 &613971490 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5223153412388109390, guid: 009f774125eb12b4c81fe79d7f0fb44e,
+    type: 3}
+  m_PrefabInstance: {fileID: 613971489}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &613971491 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 48011620463791141, guid: 009f774125eb12b4c81fe79d7f0fb44e,
+    type: 3}
+  m_PrefabInstance: {fileID: 613971489}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &766203235 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4320945164513790512, guid: 009f774125eb12b4c81fe79d7f0fb44e,
