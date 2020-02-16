@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3739471769889484679}
   - component: {fileID: 48011620463791141}
   m_Layer: 5
-  m_Name: Dropouts
+  m_Name: DropoutsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 4320945163190807740}
   - component: {fileID: 4320945163190807743}
   m_Layer: 5
-  m_Name: Money
+  m_Name: MoneyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1077,7 +1077,7 @@ GameObject:
   - component: {fileID: 4320945163792311358}
   - component: {fileID: 4320945163792311353}
   m_Layer: 5
-  m_Name: WaveCount
+  m_Name: WaveCountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2603,7 +2603,7 @@ GameObject:
   - component: {fileID: 8401607837274065444}
   - component: {fileID: 5223153412388109390}
   m_Layer: 5
-  m_Name: Score
+  m_Name: ScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
