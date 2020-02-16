@@ -37,14 +37,14 @@ public class PlaceTower : MonoBehaviour
     		//3
     		starbucks = (GameObject) 
       			Instantiate(starbucksPrefab, transform.position, Quaternion.identity);
-    		gameManager.GraduationCoins -= starbucks.GetComponent<StarbucksData>().CurrentLevel.cost;
+    		gameManager.Money -= starbucks.GetComponent<StarbucksData>().CurrentLevel.cost;
     		GameObject.Find("ActiveTower").GetComponent<Text>().text = "None";
   		}
 
 		else if (CanUpgradeStarbucks())
 		{
 		  starbucks.GetComponent<StarbucksData>().IncreaseLevel();
-		  gameManager.GraduationCoins -= starbucks.GetComponent<StarbucksData>().CurrentLevel.cost;
+		  gameManager.Money -= starbucks.GetComponent<StarbucksData>().CurrentLevel.cost;
 		  GameObject.Find("ActiveTower").GetComponent<Text>().text = "None";
 		}
 	
@@ -53,14 +53,14 @@ public class PlaceTower : MonoBehaviour
     		//3
     		library = (GameObject) 
       			Instantiate(libraryPrefab, transform.position, Quaternion.identity);
-    		gameManager.GraduationCoins -= library.GetComponent<LibraryData>().CurrentLevel.cost;
+    		gameManager.Money -= library.GetComponent<LibraryData>().CurrentLevel.cost;
   			GameObject.Find("ActiveTower").GetComponent<Text>().text = "None";
   		}
 
 		else if (CanUpgradeLibrary())
 		{
 		  library.GetComponent<LibraryData>().IncreaseLevel();
-		  gameManager.GraduationCoins -= library.GetComponent<LibraryData>().CurrentLevel.cost;
+		  gameManager.Money -= library.GetComponent<LibraryData>().CurrentLevel.cost;
 		  GameObject.Find("ActiveTower").GetComponent<Text>().text = "None";
 		}
 
@@ -69,14 +69,14 @@ public class PlaceTower : MonoBehaviour
     		//3
     		examroom = (GameObject) 
       			Instantiate(examroomPrefab, transform.position, Quaternion.identity);
-    		gameManager.GraduationCoins -= examroom.GetComponent<ExamRoomData>().CurrentLevel.cost;
+    		gameManager.Money -= examroom.GetComponent<ExamRoomData>().CurrentLevel.cost;
   			GameObject.Find("ActiveTower").GetComponent<Text>().text = "None";
   		}
 
 		else if (CanUpgradeExamRoom())
 		{
 		  examroom.GetComponent<ExamRoomData>().IncreaseLevel();
-		  gameManager.GraduationCoins -= examroom.GetComponent<ExamRoomData>().CurrentLevel.cost;
+		  gameManager.Money -= examroom.GetComponent<ExamRoomData>().CurrentLevel.cost;
 		  GameObject.Find("ActiveTower").GetComponent<Text>().text = "None";
 		}
 	}
@@ -86,7 +86,7 @@ public class PlaceTower : MonoBehaviour
 	private bool CanPlaceStarbucks()
 	{
   		cost = starbucksPrefab.GetComponent<StarbucksData>().levels[0].cost;
-		return starbucks == null && library == null && examroom == null && activeTowerLabel == "PlaceStarbucks" && gameManager.GraduationCoins >= cost;
+		return starbucks == null && library == null && examroom == null && activeTowerLabel == "PlaceStarbucks" && gameManager.Money >= cost;
 	}
 
 	private bool CanUpgradeStarbucks()
@@ -97,7 +97,7 @@ public class PlaceTower : MonoBehaviour
 	    StarbucksLevel nextStarbucksLevel = starbucksData.GetNextLevel();
 	    if (nextStarbucksLevel != null)
 	    {
-			return gameManager.GraduationCoins >= nextStarbucksLevel.cost;
+			return gameManager.Money >= nextStarbucksLevel.cost;
 	    }
 	  }
 	  return false;
@@ -109,7 +109,7 @@ public class PlaceTower : MonoBehaviour
 	private bool CanPlaceLibrary()
 	{
   		cost = libraryPrefab.GetComponent<LibraryData>().levels[0].cost;
-		return library == null && starbucks == null && examroom == null && activeTowerLabel == "PlaceLibrary" && gameManager.GraduationCoins >= cost;
+		return library == null && starbucks == null && examroom == null && activeTowerLabel == "PlaceLibrary" && gameManager.Money >= cost;
 	}
 
 
@@ -121,7 +121,7 @@ public class PlaceTower : MonoBehaviour
 	    LibraryLevel nextLibraryLevel = libraryData.GetNextLevel();
 	    if (nextLibraryLevel != null)
 	    {
-			return gameManager.GraduationCoins >= nextLibraryLevel.cost;
+			return gameManager.Money >= nextLibraryLevel.cost;
 	    }
 	  }
 	  return false;
@@ -132,7 +132,7 @@ public class PlaceTower : MonoBehaviour
 	private bool CanPlaceExamRoom()
 	{
   		cost = examroomPrefab.GetComponent<ExamRoomData>().levels[0].cost;
-		return examroom == null && starbucks == null && library == null && activeTowerLabel == "PlaceExamRoom" && gameManager.GraduationCoins >= cost;
+		return examroom == null && starbucks == null && library == null && activeTowerLabel == "PlaceExamRoom" && gameManager.Money >= cost;
 	}
 
 
@@ -144,7 +144,7 @@ public class PlaceTower : MonoBehaviour
 	    ExamRoomLevel nextExamRoomLevel = examRoomData.GetNextLevel();
 	    if (nextExamRoomLevel != null)
 	    {
-			return gameManager.GraduationCoins >= nextExamRoomLevel.cost;
+			return gameManager.Money >= nextExamRoomLevel.cost;
 	    }
 	  }
 	  return false;

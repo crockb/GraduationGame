@@ -219,6 +219,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181619200}
   m_CullTransparentMesh: 0
+--- !u!114 &189219477 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 48011620463791141, guid: 009f774125eb12b4c81fe79d7f0fb44e,
+    type: 3}
+  m_PrefabInstance: {fileID: 458701167}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &203243523
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,6 +380,18 @@ Transform:
   m_Father: {fileID: 214843239}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &223676057 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5223153412388109390, guid: 009f774125eb12b4c81fe79d7f0fb44e,
+    type: 3}
+  m_PrefabInstance: {fileID: 458701167}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &250861587
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,8 +1090,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0fa42a59dad8614aaab71afe09013d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graduationCoinsLabel: {fileID: 1031766294}
+  moneyLabel: {fileID: 1031766294}
   waveCountLabel: {fileID: 1986379057}
+  dropOutsLabel: {fileID: 189219477}
+  scoreLabel: {fileID: 223676057}
   nextWaveLabel: {fileID: 1854587365}
   gameOver: 0
 --- !u!4 &560380639
