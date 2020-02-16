@@ -19,6 +19,7 @@ public class MoveStudent : MonoBehaviour
     void Update()
     {
     	RotateIntoMoveDirection();
+        
         Vector3 startPosition = Waypoints[StartElement].transform.position;
 		Vector3 endPosition = Waypoints[StartElement + 1].transform.position;
 
@@ -26,7 +27,7 @@ public class MoveStudent : MonoBehaviour
 		float totalTimeForPath = pathLength / Speed;
 		float currentTimeOnPath = Time.time - lastWaypointSwitchTime;
 		gameObject.transform.position = Vector2.Lerp (startPosition, endPosition, currentTimeOnPath / totalTimeForPath);
-
+		
 		if (gameObject.transform.position.Equals(endPosition)) 
 		{
 			if (StartElement < Waypoints.Length - 2)
@@ -40,7 +41,7 @@ public class MoveStudent : MonoBehaviour
 
 		    	AudioSource audioSource = gameObject.GetComponent<AudioSource>();
 		    	AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
-		    	// TODO: deduct health
+		    	
 		  	}
 		}
     }
