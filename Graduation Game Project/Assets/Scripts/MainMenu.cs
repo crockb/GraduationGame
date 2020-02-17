@@ -19,12 +19,26 @@ public class MainMenu : MonoBehaviour
 
 	public void PlayWildlifeSciences()
 	{
-		SceneManager.LoadScene(1);
+		SceneManager.LoadScene("WildlifeSciences");
 	}
 
-		public void PlayCollegeOfBusiness()
+	public void PlayCollegeOfBusiness()
 	{
-		SceneManager.LoadScene(2);
+		SceneManager.LoadScene("CollegeOfBusiness");
 	}
 
+	public void PlayCollegeOfEducation()
+	{
+		SceneManager.LoadScene("CollegeOfEducation");
+	}
+
+	public void OpenHighScores()
+	{
+		SceneManager.LoadScene("HighScores");
+	}
+
+	public void OpenStartMenu()
+	{
+		SceneManager.LoadScene("StartMenu");
+	}
 }
