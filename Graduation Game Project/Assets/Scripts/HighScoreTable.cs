@@ -109,7 +109,7 @@ public class HighScoreTable : MonoBehaviour
         // Add new entry to HighScores
         highScores.highScoreEntryList.Add(highScoreEntry);
         
-        // Save update HighScores
+        // Save updated HighScores
         string json = JsonUtility.ToJson(highScores);
         PlayerPrefs.SetString("highScoreTable", json);
         PlayerPrefs.Save();
