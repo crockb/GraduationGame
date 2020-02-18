@@ -11,35 +11,43 @@ public class HighScoreTable : MonoBehaviour
 
     private void Awake()
     {
+        string jsonString = "";
+        HighScores highScores = new HighScores();
+
         entryContainer = transform.Find("highScoreEntryContainer");
         entryTemplate = entryContainer.Find("highScoreEntryTemplate");
 
         entryTemplate.gameObject.SetActive(false);
 
-        // Grab the data from PlayerPrefs
-        string jsonString = PlayerPrefs.GetString("highScoreTable");
-        HighScores highScores = JsonUtility.FromJson<HighScores>(jsonString);
+        DeleteAllHighScores();
+        AddHighScoreEntry(20000000, "A"); // 1
+        AddHighScoreEntry(30000000, "B"); // 2
+        AddHighScoreEntry(40000000, "C"); // 3
+        AddHighScoreEntry(2000000, "D"); // 4
+        AddHighScoreEntry(200000, "E"); // 5
+        AddHighScoreEntry(20000, "F"); // 6
+        AddHighScoreEntry(2000, "G"); // 7
+        AddHighScoreEntry(20, "H"); // 8
+        AddHighScoreEntry(4000, "I"); // 9
+        AddHighScoreEntry(40000, "J"); // 10
+        AddHighScoreEntry(21, "K"); // 11
 
-        // Sort entry list by Score
-        for (int i = 0; i < highScores.highScoreEntryList.Count; i++)
+        // Grab the data from PlayerPrefs if the key exists
+        if (PlayerPrefs.HasKey("highScoreTable"))
         {
-            for (int j = i + 1; j < highScores.highScoreEntryList.Count; j++)
+            jsonString = PlayerPrefs.GetString("highScoreTable");
+            highScores = JsonUtility.FromJson<HighScores>(jsonString);
+
+            // Calls the member function to sort the list by the score
+            highScores.sort();
+        
+            // Create the transforms
+            highScoreEntryTransformList = new List<Transform>();
+            // Limits the list to 10 or however many items there are
+            for (int i = 0; i < highScores.highScoreEntryList.Count && i < 10; i++)
             {
-                if (highScores.highScoreEntryList[j].score > highScores.highScoreEntryList[i].score)
-                {
-                    HighScoreEntry tmp = highScores.highScoreEntryList[i];
-                    highScores.highScoreEntryList[i] = highScores.highScoreEntryList[j];
-                    highScores.highScoreEntryList[j] = tmp;
-                }
+                CreateHighScoreEntryTransform(highScores.highScoreEntryList[i], entryContainer, highScoreEntryTransformList);
             }
-        }
-
-        // Create the transforms
-        highScoreEntryTransformList = new List<Transform>();
-        for (int i = 0; i < 10; i++) // Limits the list to 10
-        //foreach (HighScoreEntry highScoreEntry in highScores.highScoreEntryList) // this will print all
-        {
-            CreateHighScoreEntryTransform(highScores.highScoreEntryList[i], entryContainer, highScoreEntryTransformList);
         }
     }
 
@@ -90,15 +98,30 @@ public class HighScoreTable : MonoBehaviour
         transformList.Add(entryTransform);
     }
 
+    private void DeleteAllHighScores()
+    {
+        if (PlayerPrefs.HasKey("highScoreTable"))
+        {
+            PlayerPrefs.DeleteKey("highScoreTable");
+            PlayerPrefs.Save();
+        }
+    }
+
     private void AddHighScoreEntry(int score, string name)
     {
+        string jsonString = "";
+        // Create HighScores object
+        HighScores highScores = new HighScores();
         // Create HighScoreEntry
         HighScoreEntry highScoreEntry = new HighScoreEntry { score = score, name = name };
-        
-        // Load saved HighScores
-        string jsonString = PlayerPrefs.GetString("highScoreTable");
-        HighScores highScores = JsonUtility.FromJson<HighScores>(jsonString);
-    
+
+        // Load saved HighScores if they exist
+        if (PlayerPrefs.HasKey("highScoreTable"))
+        {
+            jsonString = PlayerPrefs.GetString("highScoreTable");
+            highScores = JsonUtility.FromJson<HighScores>(jsonString);
+        }
+
         // Add new entry to HighScores
         highScores.highScoreEntryList.Add(highScoreEntry);
         
@@ -110,13 +133,30 @@ public class HighScoreTable : MonoBehaviour
 
     private class HighScores 
     {
-        public List<HighScoreEntry> highScoreEntryList;
+        public List<HighScoreEntry> highScoreEntryList = new List<HighScoreEntry>();
+
+        public void sort()
+        {
+            // Sort entry list by Score
+            for (int i = 0; i < this.highScoreEntryList.Count; i++)
+            {
+                for (int j = i + 1; j < this.highScoreEntryList.Count; j++)
+                {
+                    if (this.highScoreEntryList[j].score > this.highScoreEntryList[i].score)
+                    {
+                        HighScoreEntry tmp = this.highScoreEntryList[i];
+                        this.highScoreEntryList[i] = this.highScoreEntryList[j];
+                        this.highScoreEntryList[j] = tmp;
+                    }
+                }
+            }
+        }
     }
 
     [System.Serializable]
     private class HighScoreEntry 
     {
-        public int score;
-        public string name;
+        public int score = 0;
+        public string name = "";
     }
 }
