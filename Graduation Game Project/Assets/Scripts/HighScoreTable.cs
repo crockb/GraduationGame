@@ -7,7 +7,6 @@ public class HighScoreTable : MonoBehaviour
 {
     private Transform entryContainer;
     private Transform entryTemplate;
-    private List<HighScoreEntry> highScoreEntryList;
     private List<Transform> highScoreEntryTransformList;
 
     private void Awake()
@@ -17,48 +16,31 @@ public class HighScoreTable : MonoBehaviour
 
         entryTemplate.gameObject.SetActive(false);
 
-        highScoreEntryList = new List<HighScoreEntry>() 
-        {
-            new HighScoreEntry{ score = 100000, name = "LAB" },
-            new HighScoreEntry{ score = 90000, name = "LAB" },
-            new HighScoreEntry{ score = 500000, name = "LAB" },
-            new HighScoreEntry{ score = 600000, name = "LAB" },
-            new HighScoreEntry{ score = 800000, name = "LAB" },
-            new HighScoreEntry{ score = 1000000, name = "LAB" },
-            new HighScoreEntry{ score = 300000, name = "LAB" },
-            new HighScoreEntry{ score = 20000, name = "LAB" },
-            new HighScoreEntry{ score = 4000, name = "LAB" },
-        };
-
+        // Grab the data from PlayerPrefs
         string jsonString = PlayerPrefs.GetString("highScoreTable");
         HighScores highScores = JsonUtility.FromJson<HighScores>(jsonString);
 
-        /*
         // Sort entry list by Score
-        for (int i = 0; i < highScoreEntryList.Count; i++)
+        for (int i = 0; i < highScores.highScoreEntryList.Count; i++)
         {
-            for (int j = i + 1; j < highScoreEntryList.Count; j++)
+            for (int j = i + 1; j < highScores.highScoreEntryList.Count; j++)
             {
-                if (highScoreEntryList[j].score > highScoreEntryList[i].score)
+                if (highScores.highScoreEntryList[j].score > highScores.highScoreEntryList[i].score)
                 {
-                    HighScoreEntry tmp = highScoreEntryList[i];
-                    highScoreEntryList[i] = highScoreEntryList[j];
-                    highScoreEntryList[j] = tmp;
+                    HighScoreEntry tmp = highScores.highScoreEntryList[i];
+                    highScores.highScoreEntryList[i] = highScores.highScoreEntryList[j];
+                    highScores.highScoreEntryList[j] = tmp;
                 }
             }
-        }*/
-
-        highScoreEntryTransformList = new List<Transform>();
-        foreach (HighScoreEntry highScoreEntry in highScores.highScoreEntryList)
-        {
-            CreateHighScoreEntryTransform(highScoreEntry, entryContainer, highScoreEntryTransformList);
         }
 
-        /*HighScores highScores = new HighScores { highScoreEntryList = highScoreEntryList };
-        string json = JsonUtility.ToJson(highScores);
-        PlayerPrefs.SetString("highScoreTable", json);
-        PlayerPrefs.Save();
-        Debug.Log(PlayerPrefs.GetString("highScoreTable"));*/
+        // Create the transforms
+        highScoreEntryTransformList = new List<Transform>();
+        for (int i = 0; i < 10; i++) // Limits the list to 10
+        //foreach (HighScoreEntry highScoreEntry in highScores.highScoreEntryList) // this will print all
+        {
+            CreateHighScoreEntryTransform(highScores.highScoreEntryList[i], entryContainer, highScoreEntryTransformList);
+        }
     }
 
     private void CreateHighScoreEntryTransform(HighScoreEntry highScoreEntry, Transform container, List<Transform> transformList)
@@ -93,6 +75,17 @@ public class HighScoreTable : MonoBehaviour
         entryTransform.Find("posText").GetComponent<Text>().text = rankString;
         entryTransform.Find("scoreText").GetComponent<Text>().text = score.ToString();
         entryTransform.Find("nameText").GetComponent<Text>().text = name;
+
+        // Sets background for odd rows
+        entryTransform.Find("rowBackground").gameObject.SetActive(rank % 2 == 1);
+
+        // Changes the color of the first ranked name
+        if (rank == 1)
+        {
+            entryTransform.Find("posText").GetComponent<Text>().color = Color.yellow;
+            entryTransform.Find("scoreText").GetComponent<Text>().color = Color.yellow;
+            entryTransform.Find("nameText").GetComponent<Text>().color = Color.yellow;
+        }
 
         transformList.Add(entryTransform);
     }
