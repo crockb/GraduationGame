@@ -19,18 +19,18 @@ public class HighScoreTable : MonoBehaviour
 
         entryTemplate.gameObject.SetActive(false);
 
-        DeleteAllHighScores();
-        AddHighScoreEntry(20000000, "A"); // 1
-        AddHighScoreEntry(30000000, "B"); // 2
+        //DeleteAllHighScores();
+        //AddHighScoreEntry(30000000, "B"); // 2
         AddHighScoreEntry(40000000, "C"); // 3
-        AddHighScoreEntry(2000000, "D"); // 4
-        AddHighScoreEntry(200000, "E"); // 5
-        AddHighScoreEntry(20000, "F"); // 6
-        AddHighScoreEntry(2000, "G"); // 7
-        AddHighScoreEntry(20, "H"); // 8
-        AddHighScoreEntry(4000, "I"); // 9
-        AddHighScoreEntry(40000, "J"); // 10
-        AddHighScoreEntry(21, "K"); // 11
+        //AddHighScoreEntry(2000000, "D"); // 4
+        AddHighScoreEntry(20000000, "A"); // 1
+        //AddHighScoreEntry(200000, "E"); // 5
+        //AddHighScoreEntry(20000, "F"); // 6
+        //AddHighScoreEntry(2000, "G"); // 7
+        //AddHighScoreEntry(20, "H"); // 8
+        //AddHighScoreEntry(4000, "I"); // 9
+        //AddHighScoreEntry(40000, "J"); // 10
+        //AddHighScoreEntry(21, "K"); // 11
 
         // Grab the data from PlayerPrefs if the key exists
         if (PlayerPrefs.HasKey("highScoreTable"))
@@ -98,6 +98,7 @@ public class HighScoreTable : MonoBehaviour
         transformList.Add(entryTransform);
     }
 
+    // Deletes all the entries with the key highScoreTable
     private void DeleteAllHighScores()
     {
         if (PlayerPrefs.HasKey("highScoreTable"))
@@ -107,6 +108,7 @@ public class HighScoreTable : MonoBehaviour
         }
     }
 
+    // Adds an entry to the highScoreTable
     private void AddHighScoreEntry(int score, string name)
     {
         string jsonString = "";
