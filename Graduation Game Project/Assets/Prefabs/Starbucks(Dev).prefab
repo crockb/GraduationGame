@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3900646000933044902}
   - component: {fileID: 2628765831533666186}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Starbucks3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1452189899
   m_SortingLayer: 1
-  m_SortingOrder: 3
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 74a8af297874f448a8d0caf5bb008c46, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -89,7 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9033503336214782627}
   - component: {fileID: 191149128191269778}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Starbucks1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1452189899
   m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 24a123931cc804d74b4e55d2678b026f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -168,7 +168,7 @@ GameObject:
   m_Component:
   - component: {fileID: 808780620000079137}
   - component: {fileID: 5236578707252768643}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Starbucks2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1452189899
   m_SortingLayer: 1
-  m_SortingOrder: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5f9893c8bd3514318a310ffe0b78fe0f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -248,7 +248,9 @@ GameObject:
   - component: {fileID: 4569082690972880518}
   - component: {fileID: 114898901552998412}
   - component: {fileID: 210319824853655056}
-  m_Layer: 5
+  - component: {fileID: 1158271404360664973}
+  - component: {fileID: 6960517912677827674}
+  m_Layer: 0
   m_Name: Starbucks(Dev)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +266,7 @@ Transform:
   m_GameObject: {fileID: 7068011895093013349}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.907674, y: 3.8110354, z: 221.30713}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children:
   - {fileID: 9033503336214782627}
   - {fileID: 808780620000079137}
@@ -287,10 +289,18 @@ MonoBehaviour:
   levels:
   - cost: 25
     visualization: {fileID: 3884871291415010905}
+    bullet: {fileID: 3476522349882378503, guid: 09d47fb04fe1d4f97a84339c96496ac8,
+      type: 3}
+    fireRate: 1
   - cost: 15
     visualization: {fileID: 4036523694479809226}
+    bullet: {fileID: 796823531579719243, guid: db91d6071cfba46d0b829f72f2f0999e, type: 3}
+    fireRate: 2
   - cost: 30
     visualization: {fileID: 2743341560492951988}
+    bullet: {fileID: 6557143222104795609, guid: 97dac7851f58041399cc06b9d100e39b,
+      type: 3}
+    fireRate: 3
 --- !u!210 &210319824853655056
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -302,3 +312,32 @@ SortingGroup:
   m_SortingLayerID: -1452189899
   m_SortingLayer: 1
   m_SortingOrder: 1
+--- !u!58 &1158271404360664973
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7068011895093013349}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2.5
+--- !u!114 &6960517912677827674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7068011895093013349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bff129319f3f04ac396fecd37f6cbb2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StudentsInRange: []

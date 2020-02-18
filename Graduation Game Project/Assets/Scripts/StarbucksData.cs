@@ -7,6 +7,8 @@ public class StarbucksLevel
 {
   	public int cost;
   	public GameObject visualization;
+  	public GameObject bullet;
+  	public float fireRate;
 
 }
 

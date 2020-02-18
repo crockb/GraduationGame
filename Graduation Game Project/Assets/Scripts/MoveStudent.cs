@@ -68,4 +68,19 @@ public class MoveStudent : MonoBehaviour
 	  sprite.transform.rotation = Quaternion.AngleAxis(rotationAngle + 90, Vector3.forward);
 	}
 
+	public float DistanceToGoal()
+    {
+        float distance = 0;
+        distance += Vector2.Distance(
+            gameObject.transform.position,
+            Waypoints[StartElement + 1].transform.position);
+        for (int i = StartElement + 1; i < Waypoints.Length - 1; i++)
+        {
+            Vector3 startPosition = Waypoints[i].transform.position;
+            Vector3 endPosition = Waypoints[i + 1].transform.position;
+            distance += Vector2.Distance(startPosition, endPosition);
+        }
+        return distance;
+    }
+
 }
