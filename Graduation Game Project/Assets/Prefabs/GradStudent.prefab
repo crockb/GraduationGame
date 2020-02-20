@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7675715185875725392}
   - component: {fileID: 4044011170379388315}
   - component: {fileID: 1552570062832163073}
+  - component: {fileID: 1883354752229177182}
   m_Layer: 0
   m_Name: GradStudent
   m_TagString: Student
@@ -130,6 +131,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27021a61236054d7fa80d857efa7f5e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1883354752229177182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945090372486299912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77af07438c25846b68a2e3094cb3dc84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 100
+  healthDeclineSeconds: 0.2
 --- !u!1 &6029074912343034472
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +156,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3000521489874991187}
   - component: {fileID: 5140160704589461541}
-  - component: {fileID: 7543879415845972505}
   m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
@@ -156,8 +171,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6029074912343034472}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
-  m_LocalScale: {x: 66.68602, y: 1, z: 1}
+  m_LocalPosition: {x: 0.338, y: -0.5, z: 0}
+  m_LocalScale: {x: 68.08704, y: 1.1468298, z: 1}
   m_Children: []
   m_Father: {fileID: 1945090372486299917}
   m_RootOrder: 2
@@ -199,7 +214,7 @@ SpriteRenderer:
   m_SortingLayerID: 406153567
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: d52396d8d985970489d0cf4d2466cfa6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c69bf6cb689487a48a51caa2a4c3536f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -210,21 +225,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7543879415845972505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6029074912343034472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77af07438c25846b68a2e3094cb3dc84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 100
-  healthDeclineSeconds: 0.1
 --- !u!1 &6775682799556529851
 GameObject:
   m_ObjectHideFlags: 0

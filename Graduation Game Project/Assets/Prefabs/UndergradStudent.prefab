@@ -191,6 +191,7 @@ GameObject:
   - component: {fileID: 4533361136093895253}
   - component: {fileID: 1707926919071556161}
   - component: {fileID: 3503352453670023303}
+  - component: {fileID: 4158450638293686764}
   m_Layer: 0
   m_Name: UndergradStudent
   m_TagString: Student
@@ -206,7 +207,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6132625103161577813}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.144, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8741776854613480472}
@@ -279,6 +280,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27021a61236054d7fa80d857efa7f5e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4158450638293686764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6132625103161577813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77af07438c25846b68a2e3094cb3dc84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 100
+  healthDeclineSeconds: 0.2
 --- !u!1 &7180982790117939110
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,7 +305,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2289951929169191319}
   - component: {fileID: 5074512863340049564}
-  - component: {fileID: 6788090475360209963}
   m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
@@ -305,7 +320,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7180982790117939110}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: -0.0074501466}
+  m_LocalPosition: {x: -0.337, y: 0.5, z: -0.0074501466}
   m_LocalScale: {x: 66.68602, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1498467378232175294}
@@ -359,18 +374,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6788090475360209963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7180982790117939110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77af07438c25846b68a2e3094cb3dc84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 100
-  healthDeclineSeconds: 0.15
