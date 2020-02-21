@@ -38,9 +38,8 @@ public class RefuelStudents : MonoBehaviour
         // 2
         if (target != null )
         {
-        	Transform healthBarTransform = target.transform.Find("HealthBar");
-        	HealthBar healthBar =
-	            healthBarTransform.gameObject.GetComponent<HealthBar>();
+        	//Transform healthBarTransform = target.transform.Find("HealthBar");
+        	HealthBar healthBar =target.GetComponent<HealthBar>();
 
 	        if(healthBar.currentHealth < 100)
 	        {

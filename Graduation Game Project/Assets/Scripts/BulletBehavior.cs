@@ -38,10 +38,19 @@ public class BulletBehavior : MonoBehaviour
             if (target != null)
             {
                 // 3
-                Transform healthBarTransform = target.transform.Find("HealthBar");
+                //Transform healthBarTransform = target.transform.Find("HealthBar");
                 HealthBar healthBar =
-                    healthBarTransform.gameObject.GetComponent<HealthBar>();
-                healthBar.currentHealth += Mathf.Max(damage, 0);
+                    target.GetComponent<HealthBar>();
+
+                if ((healthBar.currentHealth += Mathf.Max(damage, 0)) > 100)
+                {
+                    healthBar.currentHealth = 100;
+                }
+                else
+                {
+                    healthBar.currentHealth += Mathf.Max(damage, 0);
+                }
+                
                 // 4
                 /*if (healthBar.currentHealth <= 0)
                 {

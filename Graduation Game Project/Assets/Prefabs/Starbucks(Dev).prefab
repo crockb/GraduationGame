@@ -89,6 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9033503336214782627}
   - component: {fileID: 191149128191269778}
+  - component: {fileID: 5120775675916017153}
   m_Layer: 0
   m_Name: Starbucks1
   m_TagString: Untagged
@@ -158,6 +159,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &5120775675916017153
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3884871291415010905}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dd75937406f5f482da19532c283fb984, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4036523694479809226
 GameObject:
   m_ObjectHideFlags: 0
