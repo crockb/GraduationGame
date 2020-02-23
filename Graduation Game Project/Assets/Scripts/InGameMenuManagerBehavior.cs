@@ -13,8 +13,10 @@ public class InGameMenuManagerBehavior : MonoBehaviour
 	public Text gameOverLabel;
 	public Text gameWonLabel;
 	public GameObject nextWaveLabel;
+	public GameObject levelCompleteLabel;
 	public bool gameOver = false;
 	private int wave;
+	private Scene currentScene;
 
 	// set the money value in the menu
 	public int Money {
@@ -45,11 +47,9 @@ public class InGameMenuManagerBehavior : MonoBehaviour
 	    	waveCountLabel.text = (wave + 1) + "/10";
 		}
 
-		// transition to next level or check for GameOver
 		else
 		{
-
-
+			NextLevel();
 		}
 	  }
 
@@ -87,7 +87,7 @@ public class InGameMenuManagerBehavior : MonoBehaviour
 	    	// 10 dropouts - game over
 	    	else
 	    	{
-
+	    		//GameOver();
 	    	}
 
 	  	}
@@ -101,8 +101,10 @@ public class InGameMenuManagerBehavior : MonoBehaviour
 		DropOuts = GameStats.dropouts;
 		Score = GameStats.score;
         Wave = 0;
+        currentScene = SceneManager.GetActiveScene();
         gameOverLabel.GetComponent<Animator>().ResetTrigger("gameOverTrigger");
         gameWonLabel.GetComponent<Animator>().ResetTrigger("gameWonTrigger");
+        levelCompleteLabel.GetComponent<Animator>().ResetTrigger("levelCompleteTrigger");
     }
 
     // Update is called once per frame
@@ -111,16 +113,67 @@ public class InGameMenuManagerBehavior : MonoBehaviour
         
     }
 
-    // note:  these two functions will be updated to support additional GameOver behaviors
-    private void GameOver()
+
+    // switch levels
+    public void TransitionLevels()
     {
-    	gameOverLabel.GetComponent<Animator>().SetTrigger("gameOverTrigger");
+    	// dropouts exceeds limit - game is over
+    	if (GameStats.dropouts >= 10)
+    	{
+    		GameOver();
+    	}
+
+    	// all levels complete - game is won
+    	else if (currentScene.name == "CollegeOfEducation" && Wave == 10 && GameStats.dropouts < 10)
+    	{
+    		GameWon();
+    	}
+
+    	// level complete - switch levels
+    	else
+    	{
+    		NextLevel();
+    	}
     }
 
-    private void GameWon()
+
+    // execute game steps
+    void GameOver()
+    {
+    	if (gameOver == false)
+    	{
+    		gameOverLabel.GetComponent<Animator>().SetTrigger("gameOverTrigger");
+    		gameOver = true;
+    		StartCoroutine(WaitToLoadNextScene());
+    	}    	
+    }
+
+    void GameWon()
     {
     	gameWonLabel.GetComponent<Animator>().SetTrigger("gameWonTrigger");
+    	gameOver = true;
+    	StartCoroutine(WaitToLoadNextScene());
     }
 
+    void NextLevel()
+    {
+    	levelCompleteLabel.GetComponent<Animator>().SetTrigger("levelCompleteTrigger");
+    	StartCoroutine(WaitToLoadNextScene());
+    }
 
+    // used to delay the next scene load
+    private IEnumerator WaitToLoadNextScene()
+    {
+    	if (gameOver == true)
+    	{
+    		yield return new WaitForSeconds(4);
+    		SceneManager.LoadScene("HighScores");
+    	}
+
+    	else
+    	{
+    		yield return new WaitForSeconds(4);
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    	}
+    }
 }
