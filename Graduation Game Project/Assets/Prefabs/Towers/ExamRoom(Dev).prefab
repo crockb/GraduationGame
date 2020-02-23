@@ -128,7 +128,7 @@ Transform:
   m_GameObject: {fileID: 4558289984748759833}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.45214635, y: 0.09163438, z: 203.1582}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children:
   - {fileID: 251298186641142233}
   - {fileID: 2795628327031713586}
@@ -158,12 +158,12 @@ MonoBehaviour:
     visualization: {fileID: 5376064638562989541}
     bullet: {fileID: 4512507869248558013, guid: 32c880328221a4134aa8fe8233ea3dff,
       type: 3}
-    fireRate: 5
+    fireRate: 4
   - cost: 40
     visualization: {fileID: 3448311806362599281}
     bullet: {fileID: 7251703538930049497, guid: 93581ed455db0492db5dcb642c61561d,
       type: 3}
-    fireRate: 6
+    fireRate: 4
 --- !u!210 &210517996000681710
 SortingGroup:
   m_ObjectHideFlags: 0

@@ -351,7 +351,7 @@ MonoBehaviour:
     visualization: {fileID: 3884871291415010905}
     bullet: {fileID: 3476522349882378503, guid: 09d47fb04fe1d4f97a84339c96496ac8,
       type: 3}
-    fireRate: 1
+    fireRate: 3
   - cost: 15
     visualization: {fileID: 4036523694479809226}
     bullet: {fileID: 796823531579719243, guid: db91d6071cfba46d0b829f72f2f0999e, type: 3}
@@ -360,7 +360,7 @@ MonoBehaviour:
     visualization: {fileID: 2743341560492951988}
     bullet: {fileID: 6557143222104795609, guid: 97dac7851f58041399cc06b9d100e39b,
       type: 3}
-    fireRate: 3
+    fireRate: 1
 --- !u!210 &210319824853655056
 SortingGroup:
   m_ObjectHideFlags: 0
