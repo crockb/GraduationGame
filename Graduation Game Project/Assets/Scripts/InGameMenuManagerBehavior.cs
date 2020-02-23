@@ -37,10 +37,17 @@ public class InGameMenuManagerBehavior : MonoBehaviour
 	  set
 	  {
 	    wave = value;
-	    if (!gameOver)
+	    if (wave < 10)
 	    {
 	    	nextWaveLabel.GetComponent<Animator>().SetTrigger("nextWave");
 	    	waveCountLabel.text = (wave + 1) + "/10";
+		}
+
+		// transition to next level or check for GameOver
+		else
+		{
+
+
 		}
 	  }
 
@@ -60,6 +67,7 @@ public class InGameMenuManagerBehavior : MonoBehaviour
 	  	}
 	}
 
+
 	// set the dropouts value in the menu
 	public int DropOuts 
 	{
@@ -70,7 +78,10 @@ public class InGameMenuManagerBehavior : MonoBehaviour
 	  	set
 	  	{
 	    	GameStats.dropouts = value;
-	    	dropOutsLabel.text = value + "/10";
+	    	if (GameStats.dropouts < 10)
+	    	{
+	    		dropOutsLabel.text = value + "/10";
+	    	}
 	  	}
 	}
 
