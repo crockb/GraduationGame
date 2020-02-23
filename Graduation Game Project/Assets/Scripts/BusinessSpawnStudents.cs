@@ -57,22 +57,20 @@ public class BusinessSpawnStudents : MonoBehaviour
 		    studentsSpawned++;
 		  }
 
-		  // last wave - switch to the next wave
+		  // students gone from the wave - switch to the next wave
 		  if (studentsSpawned == waves[currentWave].maxStudents &&
 		      GameObject.FindGameObjectWithTag("Student") == null)
 		  {
 		    gameManager.Wave++;
 		    studentsSpawned = 0;
 		    lastSpawnTime = Time.time;
-
 		  }
-		  // end of the set of waves - transition levels
 		}
+
+		// end of the set of waves - switch levels
 		else
 		{
-		  //gameManager.gameOver = true;
-		  //GameObject gameOverText = GameObject.FindGameObjectWithTag ("GameWon");
-		  //gameOverText.GetComponent<Animator>().SetBool("gameOver", true);
+		  gameManager.TransitionLevels();
 		}
     }
 }
