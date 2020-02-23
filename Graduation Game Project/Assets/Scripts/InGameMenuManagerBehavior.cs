@@ -42,15 +42,20 @@ public class InGameMenuManagerBehavior : MonoBehaviour
 	  set
 	  {
 	    wave = value;
-	    if (wave <= 10)
+	    if (wave < 10 && gameOver == false)
 	    {
 	    	nextWaveLabel.GetComponent<Animator>().SetTrigger("nextWave");
 	    	waveCountLabel.text = (wave + 1) + "/10";
 		}
 
-		else
+		else if (gameOver != false)
 		{
 			NextLevel();
+		}
+
+		else
+		{
+			// do nothing - game over script will execute
 		}
 	  }
 
