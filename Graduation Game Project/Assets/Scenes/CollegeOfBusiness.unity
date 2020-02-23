@@ -112,6 +112,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &46386217 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8448207910371632927, guid: 009f774125eb12b4c81fe79d7f0fb44e,
+    type: 3}
+  m_PrefabInstance: {fileID: 458701167}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &100309516
 GameObject:
   m_ObjectHideFlags: 0
@@ -1511,6 +1517,7 @@ MonoBehaviour:
   gameOverLabel: {fileID: 674741168}
   gameWonLabel: {fileID: 772367027}
   nextWaveLabel: {fileID: 1854587365}
+  levelCompleteLabel: {fileID: 46386217}
   gameOver: 0
 --- !u!4 &560380639
 Transform:

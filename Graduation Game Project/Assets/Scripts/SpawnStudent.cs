@@ -33,8 +33,9 @@ public class SpawnStudent : MonoBehaviour
     private void spawnStudent()
     {
         Instantiate(ObjectToSpawn).GetComponent<MoveStudent>().Waypoints = Waypoints;
+        
         objectsSpawned++;
-
+        
         // 2/16/20 - Bryant added to mitigate blip at initial spawn
         ObjectToSpawn.transform.position = new Vector3(-1000,0,0);
     }
