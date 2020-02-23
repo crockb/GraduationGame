@@ -33,28 +33,29 @@ public class RefuelStudents : MonoBehaviour
     void Update()
     {
         GameObject target = null;
-        // 1
-        index = -1; 
-        float minimalStudentDistance = float.MaxValue;
-        foreach (GameObject Student in StudentsInRange)
+
+        // Starbucks Tower:
+        // Will refuel student closest to destination until full and then will remove target from list when at full health
+        if (StarbucksData != null)
         {
-            float distanceToGoal = Student.GetComponent<MoveStudent>().DistanceToGoal();
-            if (distanceToGoal < minimalStudentDistance)
+            // 1
+            float minimalStudentDistance = float.MaxValue;
+            foreach (GameObject Student in StudentsInRange)
             {
-                index++;
-                target = Student;
-                minimalStudentDistance = distanceToGoal;
+                float distanceToGoal = Student.GetComponent<MoveStudent>().DistanceToGoal();
+                if (distanceToGoal < minimalStudentDistance)
+                {
+                    target = Student;
+                    minimalStudentDistance = distanceToGoal;
+                }
             }
-        }
-        // 2
+            // 2
 
-        if (target != null )
-        {
-        	//Transform healthBarTransform = target.transform.Find("HealthBar");
-        	HealthBar healthBar =target.GetComponent<HealthBar>();
+            if (target != null )
+            {
+                //Transform healthBarTransform = target.transform.Find("HealthBar");
+                HealthBar healthBar =target.GetComponent<HealthBar>();
 
-	        if (StarbucksData != null)
-	        {
                 if(healthBar.currentHealth < 100)
                 {
                     if (Time.time - lastRefuelTime > StarbucksData.CurrentLevel.fireRate)
@@ -70,9 +71,30 @@ public class RefuelStudents : MonoBehaviour
                     StudentsInRange.Remove(target);
 
             }
+        }
 
-	        else if (LibraryData != null)
+        // Library Tower:
+        // Will refuel student with the lowest health first and will remove from list when they reach full health
+        else if (LibraryData != null)
+        {
+            // 1
+            float minimalStudentHealth = float.MaxValue;
+            foreach (GameObject Student in StudentsInRange)
             {
+                float lowestHealth = Student.GetComponent<HealthBar>().currentHealth;
+                if (lowestHealth < minimalStudentHealth)
+                {
+                    target = Student;
+                    minimalStudentHealth = lowestHealth;
+                }
+            }
+            // 2
+
+            if (target != null )
+            {
+                //Transform healthBarTransform = target.transform.Find("HealthBar");
+                HealthBar healthBar = target.GetComponent<HealthBar>();
+
                 if(healthBar.currentHealth < 100)
                 {
                     if (Time.time - lastRefuelTime > LibraryData.CurrentLevel.fireRate)
@@ -89,9 +111,29 @@ public class RefuelStudents : MonoBehaviour
                     StudentsInRange.Remove(target);
                 }
             }
+        }
 
-            else if (ExamRoomData != null)
+        // Exam Room Tower:
+        // Will refuel student ...
+        else if (ExamRoomData != null)
+        {
+            // 1
+            float minimalStudentHealth = float.MaxValue;
+            foreach (GameObject Student in StudentsInRange)
             {
+                float lowestHealth = Student.GetComponent<HealthBar>().currentHealth;
+                if (lowestHealth < minimalStudentHealth)
+                {
+                    target = Student;
+                    minimalStudentHealth = lowestHealth;
+                }
+            }
+            // 2
+
+            if (target != null )
+            {
+                //Transform healthBarTransform = target.transform.Find("HealthBar");
+                HealthBar healthBar = target.GetComponent<HealthBar>();
 
                 if(healthBar.currentHealth < 100)
                 {

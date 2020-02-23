@@ -42,7 +42,7 @@ public class BulletBehavior : MonoBehaviour
                 HealthBar healthBar =
                     target.GetComponent<HealthBar>();
 
-                if ((healthBar.currentHealth += Mathf.Max(damage, 0)) > 100)
+                if ((healthBar.currentHealth + Mathf.Max(damage, 0)) > 100)
                 {
                     healthBar.currentHealth = 100;
                 }

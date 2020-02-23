@@ -8,11 +8,14 @@ public class MoveStudent : MonoBehaviour
 	public GameObject[] Waypoints;
 	public float Speed;
 	private float lastWaypointSwitchTime;
+
+	private InGameMenuManagerBehavior gameManager;
 	
     // Start is called before the first frame update
     void Start()
     {
         lastWaypointSwitchTime = Time.time;
+        gameManager = GameObject.Find("InGameMenuManager").GetComponent<InGameMenuManagerBehavior>();
     }
 
     // Update is called once per frame
@@ -37,6 +40,9 @@ public class MoveStudent : MonoBehaviour
 		  	}
 		  	else
 		  	{
+		  		//add Money for students reaching desination
+		  		//all students add $5
+		  		gameManager.Money += 5;
 		    	Destroy(gameObject);
 
 		    	AudioSource audioSource = gameObject.GetComponent<AudioSource>();
