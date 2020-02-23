@@ -31,8 +31,34 @@ public class InGameMenuManagerBehavior : MonoBehaviour
 	  	}
 	}
 
+	//For Business Level
 	// set the wave value in the menu
 	public int Wave
+	{
+	  get
+	  {
+	    return wave;
+	  }
+	  set
+	  {
+	    wave = value;
+	    if (wave <= 10)
+	    {
+	    	nextWaveLabel.GetComponent<Animator>().SetTrigger("nextWave");
+	    	waveCountLabel.text = (wave + 1) + "/10";
+		}
+
+		else
+		{
+			NextLevel();
+		}
+	  }
+
+	}
+
+	//for Education and Wildlife levels
+	// set the wave value in the menu
+	public int WaveInfo
 	{
 	  get
 	  {
@@ -87,7 +113,7 @@ public class InGameMenuManagerBehavior : MonoBehaviour
 	    	// 10 dropouts - game over
 	    	else
 	    	{
-	    		//GameOver();
+	    		GameOver();
 	    	}
 
 	  	}

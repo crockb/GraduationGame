@@ -651,7 +651,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1693942233}
-        m_MethodName: PlayCollegeOfBusiness
+        m_MethodName: PlayCollegeOfEducation
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

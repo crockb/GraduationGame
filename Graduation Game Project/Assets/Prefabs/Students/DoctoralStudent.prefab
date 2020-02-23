@@ -188,7 +188,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6548965246529103440}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 1.03, y: -0.65, z: 0.0439416}
+  m_LocalPosition: {x: -1000, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.6, z: 1}
   m_Children:
   - {fileID: 3996112857040175279}
@@ -239,7 +239,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  Speed: 1
+  Speed: 0.5
 --- !u!58 &58841463547309378
 CircleCollider2D:
   m_ObjectHideFlags: 0
