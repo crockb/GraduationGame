@@ -39,14 +39,14 @@ public class BusinessSpawnStudents : MonoBehaviour
 		int currentWave = gameManager.Wave;
 		if (currentWave < waves.Length)
 		{
-		  // 2
+		  // with each wave confirm the ability to spawn a student
 		  float timeInterval = Time.time - lastSpawnTime;
 		  float spawnInterval = waves[currentWave].spawnInterval;
 		  if (((studentsSpawned == 0 && timeInterval > timeBetweenWaves) ||
 		       timeInterval > spawnInterval) && 
 		      studentsSpawned < waves[currentWave].maxStudents)
 		  {
-		    // 3  
+		    // spawn a new student in the wave and set the waypoints
 		    lastSpawnTime = Time.time;
 		    GameObject newStudent = (GameObject)
 		        Instantiate(waves[currentWave].studentPrefab);
@@ -56,17 +56,17 @@ public class BusinessSpawnStudents : MonoBehaviour
     		newStudent.GetComponent<MoveStudent>().Waypoints = waves[currentWave].waypoints;
 		    studentsSpawned++;
 		  }
-		  // 4 
+
+		  // last wave - switch to the next wave
 		  if (studentsSpawned == waves[currentWave].maxStudents &&
 		      GameObject.FindGameObjectWithTag("Student") == null)
 		  {
 		    gameManager.Wave++;
-		    //gameManager.Gold = Mathf.RoundToInt(gameManager.Gold * 1.1f);
 		    studentsSpawned = 0;
 		    lastSpawnTime = Time.time;
 
 		  }
-		  // 5 
+		  // end of the set of waves - transition levels
 		}
 		else
 		{
