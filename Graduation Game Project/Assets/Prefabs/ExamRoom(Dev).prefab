@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5622351726161875668}
   - component: {fileID: 4136485706019631935}
+  - component: {fileID: 5381182261616908861}
   m_Layer: 0
   m_Name: ExamRoom3
   m_TagString: Untagged
@@ -25,9 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3448311806362599281}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0} 
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1} 
-  m_LocalScale: {x: 1.4, y: 1.4, z: 1} 
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 7880853113757005938}
   m_RootOrder: 2
@@ -80,6 +80,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &5381182261616908861
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3448311806362599281}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4558289984748759833
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,6 +110,8 @@ GameObject:
   - component: {fileID: 7880853113757005938}
   - component: {fileID: 114265399577972840}
   - component: {fileID: 210517996000681710}
+  - component: {fileID: 58561080643532680}
+  - component: {fileID: 114972270435580932}
   m_Layer: 0
   m_Name: ExamRoom(Dev)
   m_TagString: Untagged
@@ -130,10 +151,19 @@ MonoBehaviour:
   levels:
   - cost: 45
     visualization: {fileID: 4754554287719606580}
-  - cost: 0
+    bullet: {fileID: 4965045928633417488, guid: e794e256424dc4200b8f7dac3c4e381e,
+      type: 3}
+    fireRate: 4
+  - cost: 35
     visualization: {fileID: 5376064638562989541}
-  - cost: 0
+    bullet: {fileID: 4512507869248558013, guid: 32c880328221a4134aa8fe8233ea3dff,
+      type: 3}
+    fireRate: 5
+  - cost: 40
     visualization: {fileID: 3448311806362599281}
+    bullet: {fileID: 7251703538930049497, guid: 93581ed455db0492db5dcb642c61561d,
+      type: 3}
+    fireRate: 6
 --- !u!210 &210517996000681710
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -145,6 +175,35 @@ SortingGroup:
   m_SortingLayerID: -1452189899
   m_SortingLayer: 1
   m_SortingOrder: 1
+--- !u!58 &58561080643532680
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4558289984748759833}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 4
+--- !u!114 &114972270435580932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4558289984748759833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bff129319f3f04ac396fecd37f6cbb2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StudentsInRange: []
 --- !u!1 &4754554287719606580
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,6 +214,7 @@ GameObject:
   m_Component:
   - component: {fileID: 251298186641142233}
   - component: {fileID: 7930264067777723078}
+  - component: {fileID: 1148675999398713914}
   m_Layer: 0
   m_Name: ExamRoom1
   m_TagString: Untagged
@@ -224,6 +284,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1148675999398713914
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4754554287719606580}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5376064638562989541
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,6 +313,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2795628327031713586}
   - component: {fileID: 6503533238375112053}
+  - component: {fileID: 3411600044426143643}
   m_Layer: 0
   m_Name: ExamRoom2
   m_TagString: Untagged
@@ -249,9 +329,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5376064638562989541}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0} 
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1} 
-  m_LocalScale: {x: 0.9, y: 0.9, z: 1} 
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 7880853113757005938}
   m_RootOrder: 1
@@ -304,3 +383,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &3411600044426143643
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5376064638562989541}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

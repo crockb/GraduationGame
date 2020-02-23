@@ -3,7 +3,13 @@ guid: 2c7e3ad69c3eb4252921fc70ec91e6e4
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - starbucksPrefab: {fileID: 7068011895093013349, guid: 8f96dd4c5507dd44ab0afad724b3fbda,
+      type: 3}
+  - libraryPrefab: {fileID: 63070631789792785, guid: 057cd47f1e42d8a438c4d632552f80e0,
+      type: 3}
+  - examroomPrefab: {fileID: 4558289984748759833, guid: 8de0f5c4f60948840bf14af5c2f19dab,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
