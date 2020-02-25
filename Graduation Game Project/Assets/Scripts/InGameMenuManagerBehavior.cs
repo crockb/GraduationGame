@@ -202,8 +202,7 @@ public class InGameMenuManagerBehavior : MonoBehaviour
 			HighScoreTable highScores = new HighScoreTable();
 			if (highScores.okayToAddToHighScores(Score))
 			{
-				HighScoreEntry highScoreEntry = new HighScoreEntry();
-				highScoreEntry.passScore(Score);
+				HighScoreEntry.score = Score;
 				SceneManager.LoadScene("HighScoreEntry");
 			}
 			else

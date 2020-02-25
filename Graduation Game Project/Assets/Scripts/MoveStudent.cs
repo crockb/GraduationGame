@@ -43,6 +43,7 @@ public class MoveStudent : MonoBehaviour
 		  		//add Money for students reaching desination
 		  		//all students add $5
 		  		gameManager.Money += 5;
+				gameManager.Score += 1000;
 		    	Destroy(gameObject);
 
 		    	AudioSource audioSource = gameObject.GetComponent<AudioSource>();

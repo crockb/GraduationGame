@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class HighScoreEntry : MonoBehaviour
 {
     private InputField nameInputField;
-    private int score;
+    public static int score;
     
     void start()
     {
@@ -24,13 +24,8 @@ public class HighScoreEntry : MonoBehaviour
         else
         {
             HighScoreTable highScore = new HighScoreTable();
-            highScore.AddHighScoreEntry(this.score, nameInputField.text);
+            highScore.AddHighScoreEntry(score, nameInputField.text);
             SceneManager.LoadScene("HighScores");
         }
-    }
-
-    public void passScore(int score)
-    {
-        this.score = score;
     }
 }
