@@ -85,13 +85,14 @@ public class InGameMenuManagerBehavior : MonoBehaviour
 	  	set
 	  	{
 	    	GameStats.dropouts = value;
-	    	if (GameStats.dropouts <= 10)
+	    	if (GameStats.dropouts < 10)
 	    	{
 	    		dropOutsLabel.text = value + "/10";
 	    	}
 	    	// 10 dropouts - game over
 	    	else
 	    	{
+	    		dropOutsLabel.text = "10/10";
 	    		GameOver();
 	    	}
 
