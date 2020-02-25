@@ -15,9 +15,6 @@ public class RefuelStudents : MonoBehaviour
     private int index;
 
 
-    private float lifetime = 2.0f;
-
-
     // Use this for initialization
     void Start()
     {
