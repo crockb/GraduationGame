@@ -29,6 +29,8 @@ public class PlaceTower : MonoBehaviour
 
 	void OnMouseUp()
 	{
+		Debug.Log("Mouse Clicked!");
+
   		// determine which tower to be placed
 		activeTowerLabel = (GameObject.Find("ActiveTower").GetComponent<Text>().text);
 			

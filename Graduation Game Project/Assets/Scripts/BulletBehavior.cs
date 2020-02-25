@@ -14,6 +14,7 @@ public class BulletBehavior : MonoBehaviour
     private float distance;
     private float startTime;
 
+
     private GameManagerBehavior gameManager;
 
     // Use this for initialization
@@ -51,17 +52,10 @@ public class BulletBehavior : MonoBehaviour
                     healthBar.currentHealth += Mathf.Max(damage, 0);
                 }
                 
-                // 4
-                /*if (healthBar.currentHealth <= 0)
-                {
-                    Destroy(target);
-                    AudioSource audioSource = target.GetComponent<AudioSource>();
-                    AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
-
-                    gameManager.Gold += 50;
-                } */
+                
             Destroy(gameObject);
             }
+        Destroy(gameObject);
         }
     }
 

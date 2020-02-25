@@ -1299,6 +1299,11 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6583645730124190146, guid: 009f774125eb12b4c81fe79d7f0fb44e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7097429465461466943, guid: 009f774125eb12b4c81fe79d7f0fb44e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1318,6 +1323,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 83.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7165254423099228235, guid: 009f774125eb12b4c81fe79d7f0fb44e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 009f774125eb12b4c81fe79d7f0fb44e, type: 3}
