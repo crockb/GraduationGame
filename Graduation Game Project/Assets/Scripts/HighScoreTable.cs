@@ -20,17 +20,9 @@ public class HighScoreTable : MonoBehaviour
         entryTemplate.gameObject.SetActive(false);
 
         //DeleteAllHighScores();
-        //AddHighScoreEntry(30000000, "B"); // 2
-        AddHighScoreEntry(40000000, "C"); // 3
-        //AddHighScoreEntry(2000000, "D"); // 4
-        AddHighScoreEntry(20000000, "A"); // 1
-        //AddHighScoreEntry(200000, "E"); // 5
-        //AddHighScoreEntry(20000, "F"); // 6
-        //AddHighScoreEntry(2000, "G"); // 7
-        //AddHighScoreEntry(20, "H"); // 8
-        //AddHighScoreEntry(4000, "I"); // 9
-        //AddHighScoreEntry(40000, "J"); // 10
-        //AddHighScoreEntry(21, "K"); // 11
+
+        //AddHighScoreEntry(40000000, "C"); // 3
+        //AddHighScoreEntry(20000000, "A"); // 1
 
         // Grab the data from PlayerPrefs if the key exists
         if (PlayerPrefs.HasKey("highScoreTable"))
@@ -49,6 +41,41 @@ public class HighScoreTable : MonoBehaviour
                 CreateHighScoreEntryTransform(highScores.highScoreEntryList[i], entryContainer, highScoreEntryTransformList);
             }
         }
+    }
+
+    // Returns true if okay to add to high scores, false otherwise
+    public bool okayToAddToHighScores(int score)
+    {
+        // Grab the data from PlayerPrefs if the key exists
+        if (PlayerPrefs.HasKey("highScoreTable"))
+        {
+            string jsonString = PlayerPrefs.GetString("highScoreTable");
+            HighScores highScores = JsonUtility.FromJson<HighScores>(jsonString);
+
+            // Calls the member function to sort the list by the score
+            highScores.sort();
+
+            int count = highScores.highScoreEntryList.Count;
+
+            // If the count is equal to 10 then check the lowest score
+            if (count == 10)
+            {
+                if (score > highScores.highScoreEntryList[count].score)
+                {
+                    return true;
+                }
+            }
+            // If the count is less than 10 then we have space to add no matter what
+            else if (count < 10)
+            {
+                return true;
+            }
+        }
+        else // the PlayerPrefs hasn't been created yet so add the high score
+        {
+            return true;
+        }
+        return false;
     }
 
     private void CreateHighScoreEntryTransform(HighScoreEntry highScoreEntry, Transform container, List<Transform> transformList)
@@ -109,7 +136,7 @@ public class HighScoreTable : MonoBehaviour
     }
 
     // Adds an entry to the highScoreTable
-    private void AddHighScoreEntry(int score, string name)
+    public void AddHighScoreEntry(int score, string name)
     {
         string jsonString = "";
         // Create HighScores object
