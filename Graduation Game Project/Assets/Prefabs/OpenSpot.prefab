@@ -33,6 +33,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+
 --- !u!212 &7017575788238584936
 SpriteRenderer:
   m_ObjectHideFlags: 0

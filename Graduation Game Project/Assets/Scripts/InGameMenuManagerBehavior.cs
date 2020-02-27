@@ -199,7 +199,17 @@ public class InGameMenuManagerBehavior : MonoBehaviour
     	if (gameOver == true)
     	{
     		yield return new WaitForSeconds(4);
-    		SceneManager.LoadScene("HighScores");
+			// Check to see if Score should be added to high scores
+			HighScoreTable highScores = new HighScoreTable();
+			if (highScores.okayToAddToHighScores(Score))
+			{
+				HighScoreEntry.score = Score;
+				SceneManager.LoadScene("HighScoreEntry");
+			}
+			else
+			{
+				SceneManager.LoadScene("HighScores");
+			}
     	}
 
     	else
