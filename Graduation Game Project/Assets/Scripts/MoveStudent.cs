@@ -8,6 +8,8 @@ public class MoveStudent : MonoBehaviour
 	public GameObject[] Waypoints;
 	public float Speed;
 	private float lastWaypointSwitchTime;
+	public Vector3 velocity;
+	public Vector3 currentPosition;
 
 	private InGameMenuManagerBehavior gameManager;
 	
@@ -31,6 +33,9 @@ public class MoveStudent : MonoBehaviour
 		float currentTimeOnPath = Time.time - lastWaypointSwitchTime;
 		gameObject.transform.position = Vector2.Lerp (startPosition, endPosition, currentTimeOnPath / totalTimeForPath);
 		
+		currentPosition = gameObject.transform.position;
+		velocity = Speed* ((endPosition-currentPosition).normalized);
+
 		if (gameObject.transform.position.Equals(endPosition)) 
 		{
 			if (StartElement < Waypoints.Length - 2)
