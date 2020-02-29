@@ -332,7 +332,7 @@ public class RefuelStudents : MonoBehaviour
             animator.SetTrigger("fireRefuel");
             AudioSource audioSource = gameObject.GetComponent<AudioSource>();
             //audioSource.PlayOneRefuel(audioSource.clip);
-            
+
         }
     }
 
@@ -376,7 +376,7 @@ public class RefuelStudents : MonoBehaviour
         float t= Mathf.Max(t1,t2);// let us take the larger time value 
         targetPosition.x =(targetVelocity.x*t)+targetStudent.gameObject.transform.position.x;
         targetPosition.y =targetStudent.gameObject.transform.position.y+(targetVelocity.y*t);
-        //RotateAndFire(new Vector2(aimX,aimY));//now position the turret
+        
         return targetPosition;
         Debug.Log("Target = x:" + targetPosition.x + " y:" + targetPosition.y);
         }

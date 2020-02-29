@@ -41,4 +41,10 @@ public class MainMenu : MonoBehaviour
 	{
 		SceneManager.LoadScene("StartMenu");
 	}
+
+	public void OpenHowToPlay()
+	{
+		SceneManager.LoadScene("HowToPlay");
+	}
+
 }
