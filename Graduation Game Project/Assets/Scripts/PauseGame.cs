@@ -14,25 +14,3 @@ public class PauseGame : MonoBehaviour
 		Time.timeScale = 1;
 	}
 }
-
-
-/* ORIGINAL WORKING SCRIPT
-
-public class PauseGame : MonoBehaviour
-{
-	bool isPaused = false;
-
-	public void pauseGame()
-	{
-		if (isPaused) {
-			Time.timeScale = 1;
-			isPaused = false;
-
-		} else {
-
-			Time.timeScale = 0;
-			isPaused = true;
-		}
-	}
-}
-*/
