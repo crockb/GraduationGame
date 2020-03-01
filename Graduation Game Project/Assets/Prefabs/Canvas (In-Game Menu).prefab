@@ -1511,7 +1511,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'L3: $20'
+  m_Text: 'L3: $30'
 --- !u!1 &4320945164277204968
 GameObject:
   m_ObjectHideFlags: 0

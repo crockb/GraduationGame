@@ -9,21 +9,15 @@ public class BulletBehavior : MonoBehaviour
     public GameObject target;
     public Vector3 startPosition;
     public Vector3 targetPosition;
-    //public float timeInterval;
 
     private float distance;
     private float startTime;
-
-
-    private GameManagerBehavior gameManager;
 
     // Use this for initialization
     void Start()
     {
         startTime = Time.time;
         distance = Vector2.Distance(startPosition, targetPosition);
-        GameObject gm = GameObject.Find("GameManager");
-        gameManager = gm.GetComponent<GameManagerBehavior>();
     }
 
     // Update is called once per frame

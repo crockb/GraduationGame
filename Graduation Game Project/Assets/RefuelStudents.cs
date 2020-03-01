@@ -193,26 +193,6 @@ public class RefuelStudents : MonoBehaviour
         if (StarbucksData != null)
         {
 
-/*  ORIGINAL WORKING CODE - BEFORE 2/28/20 UPDATES TO LEAD STUDENTS
-
-            GameObject bulletPrefab = StarbucksData.CurrentLevel.bullet;
-
-            // set the positions of the tower and student 
-            Vector3 startPosition = gameObject.transform.position;
-            Vector3 targetPosition = target.transform.position;
-            startPosition.z = bulletPrefab.transform.position.z;
-            targetPosition.z = bulletPrefab.transform.position.z;
-
-            // instatiate a bullet and set the targets original
-            GameObject newBullet = (GameObject) Instantiate(bulletPrefab);
-            newBullet.transform.position = startPosition;
-            BulletBehavior bulletComp = newBullet.GetComponent<BulletBehavior>();
-            bulletComp.target = target.gameObject;
-            bulletComp.startPosition = startPosition;
-            bulletComp.targetPosition = targetPosition;
-*/
-
-//  NEW CODE - TARGET WHERE THE STUDENTS ARE GOING
             GameObject bulletPrefab = StarbucksData.CurrentLevel.bullet;
 
             // instatiate a bullet and set the targets original
@@ -224,7 +204,7 @@ public class RefuelStudents : MonoBehaviour
             bulletComp.target = target.gameObject;
             bulletComp.startPosition = startPosition;
             bulletComp.targetPosition = AcquireTargetPosition(target.gameObject, newBullet);
-            //Debug.Log("Actual Target - x:" + bulletComp.targetPosition.x + " y:" + bulletComp.targetPosition.y);
+
             
             // fire the bullet
             Animator animator =
@@ -237,32 +217,6 @@ public class RefuelStudents : MonoBehaviour
         if (LibraryData != null)
         {
 
-/*  ORIGINAL WORKING CODE - BEFORE 2/28/20 UPDATES TO LEAD STUDENTS
-
-            GameObject bulletPrefab = LibraryData.CurrentLevel.bullet;
-
-            // set the positions of the tower and student 
-            Vector3 startPosition = gameObject.transform.position;
-            Vector3 targetPosition = target.transform.position;
-            startPosition.z = bulletPrefab.transform.position.z;
-            targetPosition.z = bulletPrefab.transform.position.z;
-
-            // instatiate a bullet and set the targets
-            GameObject newBullet = (GameObject) Instantiate(bulletPrefab);
-            newBullet.transform.position = startPosition;
-            BulletBehavior bulletComp = newBullet.GetComponent<BulletBehavior>();
-            bulletComp.target = target.gameObject;
-            bulletComp.startPosition = startPosition;
-            bulletComp.targetPosition = targetPosition;
-
-            // fire the bullet
-            Animator animator =
-                LibraryData.CurrentLevel.visualization.GetComponent<Animator>();
-            animator.SetTrigger("fireRefuel");
-            AudioSource audioSource = gameObject.GetComponent<AudioSource>();
-            //audioSource.PlayOneRefuel(audioSource.clip);
-*/
-//  NEW CODE - TARGET WHERE THE STUDENTS ARE GOING
             GameObject bulletPrefab = LibraryData.CurrentLevel.bullet;
 
             // instatiate a bullet and set the targets original
@@ -288,31 +242,6 @@ public class RefuelStudents : MonoBehaviour
         if (ExamRoomData != null)
         {
 
-/*  ORIGINAL WORKING CODE - BEFORE 2/28/20 UPDATES TO LEAD STUDENTS
-            GameObject bulletPrefab = ExamRoomData.CurrentLevel.bullet;
-
-            // set the positions of the tower and student  
-            Vector3 startPosition = gameObject.transform.position;
-            Vector3 targetPosition = target.transform.position;
-            startPosition.z = bulletPrefab.transform.position.z;
-            targetPosition.z = bulletPrefab.transform.position.z;
-
-            // instatiate a bullet and set the targets original
-            GameObject newBullet = (GameObject) Instantiate(bulletPrefab);
-            newBullet.transform.position = startPosition;
-            BulletBehavior bulletComp = newBullet.GetComponent<BulletBehavior>();
-            bulletComp.target = target.gameObject;
-            bulletComp.startPosition = startPosition;
-            bulletComp.targetPosition = targetPosition;
-
-             // fire the bullet
-            Animator animator =
-                ExamRoomData.CurrentLevel.visualization.GetComponent<Animator>();
-            animator.SetTrigger("fireRefuel");
-            AudioSource audioSource = gameObject.GetComponent<AudioSource>();
-            //audioSource.PlayOneRefuel(audioSource.clip);
-*/
-//  NEW CODE - TARGET WHERE THE STUDENTS ARE GOING
             GameObject bulletPrefab = ExamRoomData.CurrentLevel.bullet;
 
             // instatiate a bullet and set the targets original
@@ -349,6 +278,7 @@ public class RefuelStudents : MonoBehaviour
         }
     }
 
+
     // identify where the student and bullet will meet based on current path
     // algorithm reference:  https://gamedevelopment.tutsplus.com/tutorials/unity-solution-for-hitting-moving-targets--cms-29633
 
@@ -378,7 +308,7 @@ public class RefuelStudents : MonoBehaviour
         targetPosition.y =targetStudent.gameObject.transform.position.y+(targetVelocity.y*t);
         
         return targetPosition;
-        Debug.Log("Target = x:" + targetPosition.x + " y:" + targetPosition.y);
+        
         }
     }
 

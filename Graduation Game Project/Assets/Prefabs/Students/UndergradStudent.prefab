@@ -230,7 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartElement: 0
   Waypoints: []
-  Speed: 1.5
+  Speed: 1.2
   velocity: {x: 0, y: 0, z: 0}
   currentPosition: {x: 0, y: 0, z: 0}
 --- !u!50 &4533361136093895253

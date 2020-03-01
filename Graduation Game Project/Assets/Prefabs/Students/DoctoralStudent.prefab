@@ -239,7 +239,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  Speed: 0.5
+  Speed: 0.8
+  velocity: {x: 0, y: 0, z: 0}
+  currentPosition: {x: 0, y: 0, z: 0}
 --- !u!58 &58841463547309378
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -303,7 +305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 100
-  healthDeclineSeconds: 0.1
+  healthDeclineSeconds: 0.15
 --- !u!1 &8895727982176825232
 GameObject:
   m_ObjectHideFlags: 0

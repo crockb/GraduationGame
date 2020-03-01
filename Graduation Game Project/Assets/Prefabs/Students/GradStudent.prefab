@@ -82,6 +82,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   Speed: 1
+  velocity: {x: 0, y: 0, z: 0}
+  currentPosition: {x: 0, y: 0, z: 0}
 --- !u!50 &7675715185875725392
 Rigidbody2D:
   serializedVersion: 4
@@ -145,7 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 100
-  healthDeclineSeconds: 0.2
+  healthDeclineSeconds: 0.18
 --- !u!1 &6029074912343034472
 GameObject:
   m_ObjectHideFlags: 0
