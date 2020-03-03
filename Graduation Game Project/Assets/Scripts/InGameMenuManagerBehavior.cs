@@ -197,6 +197,19 @@ public class InGameMenuManagerBehavior : MonoBehaviour
     	StartCoroutine(WaitToLoadNextScene());
     }
 
+	private int CalculateScore() {
+		int score = 0;
+		// Score (aka Gamestats.score) is being incremented in MoveStudent.cs
+		score = Score + Money - (DropOuts * 50); 
+		if (DropOuts == 0) {
+			HighScoreEntry.score += 1000; // bonus for perfect round
+		}
+		if (HighScoreEntry.score < 0) {
+			HighScoreEntry.score = 0;
+		}
+		return score;
+	}
+
     // used to delay the next scene load
     private IEnumerator WaitToLoadNextScene()
     {
@@ -207,7 +220,7 @@ public class InGameMenuManagerBehavior : MonoBehaviour
 			HighScoreTable highScores = new HighScoreTable();
 			if (highScores.okayToAddToHighScores(Score))
 			{
-				HighScoreEntry.score = Score;
+				HighScoreEntry.score = CalculateScore();
 				SceneManager.LoadScene("HighScoreEntry");
 			}
 			else
