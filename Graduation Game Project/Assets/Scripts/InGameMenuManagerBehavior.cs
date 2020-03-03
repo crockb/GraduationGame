@@ -218,9 +218,9 @@ public class InGameMenuManagerBehavior : MonoBehaviour
     		yield return new WaitForSeconds(4);
 			// Check to see if Score should be added to high scores
 			HighScoreTable highScores = new HighScoreTable();
-			if (highScores.okayToAddToHighScores(Score))
+			HighScoreEntry.score = CalculateScore();
+			if (highScores.okayToAddToHighScores(HighScoreEntry.score))
 			{
-				HighScoreEntry.score = CalculateScore();
 				SceneManager.LoadScene("HighScoreEntry");
 			}
 			else
