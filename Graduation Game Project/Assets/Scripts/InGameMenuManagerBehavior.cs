@@ -202,10 +202,10 @@ public class InGameMenuManagerBehavior : MonoBehaviour
 		// Score (aka Gamestats.score) is being incremented in MoveStudent.cs
 		score = Score + Money - (DropOuts * 50); 
 		if (DropOuts == 0) {
-			HighScoreEntry.score += 1000; // bonus for perfect round
+			score += 1000; // bonus for perfect round
 		}
-		if (HighScoreEntry.score < 0) {
-			HighScoreEntry.score = 0;
+		if (score < 0) {
+			score = 0;
 		}
 		return score;
 	}

@@ -7,12 +7,19 @@ using UnityEngine.UI;
 public class HighScoreEntry : MonoBehaviour
 {
     private InputField nameInputField;
+    public Text scoreValue;
     public static int score;
     
     void start()
     {
         nameInputField = GameObject.Find("NameInputField").GetComponent<InputField>();
     }
+
+    void Update()
+    {
+        scoreValue.text = score.ToString();
+    }
+
     public void submit() 
     {
         nameInputField = GameObject.Find("NameInputField").GetComponent<InputField>();
