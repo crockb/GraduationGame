@@ -375,4 +375,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 100
-  healthDeclineSeconds: 0.16
+  healthDeclineSeconds: 0.17

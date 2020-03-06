@@ -27,13 +27,13 @@ public class PlaceTower : MonoBehaviour
     }
 
 
+    //placing towers when mouse is clicked
 	void OnMouseUp()
 	{
-		Debug.Log("Mouse Clicked!");
-
   		// determine which tower to be placed
 		activeTowerLabel = (GameObject.Find("ActiveTower").GetComponent<Text>().text);
 			
+		//placing starbucks tower
 		if (CanPlaceStarbucks())
   		{
     		//3
@@ -43,6 +43,7 @@ public class PlaceTower : MonoBehaviour
     		GameObject.Find("ActiveTower").GetComponent<Text>().text = "None";
   		}
 
+  		//upgrading starbucks tower
 		else if (CanUpgradeStarbucks())
 		{
 		  starbucks.GetComponent<StarbucksData>().IncreaseLevel();
@@ -50,6 +51,7 @@ public class PlaceTower : MonoBehaviour
 		  GameObject.Find("ActiveTower").GetComponent<Text>().text = "None";
 		}
 	
+		//placing library tower
 		else if (CanPlaceLibrary())
   		{
     		//3
@@ -59,6 +61,7 @@ public class PlaceTower : MonoBehaviour
   			GameObject.Find("ActiveTower").GetComponent<Text>().text = "None";
   		}
 
+  		//upgrading library tower
 		else if (CanUpgradeLibrary())
 		{
 		  library.GetComponent<LibraryData>().IncreaseLevel();
@@ -66,6 +69,7 @@ public class PlaceTower : MonoBehaviour
 		  GameObject.Find("ActiveTower").GetComponent<Text>().text = "None";
 		}
 
+		//placing exam room tower
 		else if (CanPlaceExamRoom())
   		{
     		//3
@@ -75,6 +79,7 @@ public class PlaceTower : MonoBehaviour
   			GameObject.Find("ActiveTower").GetComponent<Text>().text = "None";
   		}
 
+  		//upgrading exam room tower
 		else if (CanUpgradeExamRoom())
 		{
 		  examroom.GetComponent<ExamRoomData>().IncreaseLevel();
@@ -83,7 +88,7 @@ public class PlaceTower : MonoBehaviour
 		}
 	}
 
-	// functions to place StarBucksTower
+	// functions to place Starbucks
 
 	private bool CanPlaceStarbucks()
 	{

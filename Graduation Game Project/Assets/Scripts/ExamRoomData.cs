@@ -18,6 +18,7 @@ public class ExamRoomData : MonoBehaviour
 	public List<ExamRoomLevel> levels;
 	private ExamRoomLevel currentLevel;
 
+	//Set current level
 	void OnEnable()
 	{
 	  CurrentLevel = levels[0];
@@ -26,12 +27,12 @@ public class ExamRoomData : MonoBehaviour
 	//1
 	public ExamRoomLevel CurrentLevel
 	{
-	  //2
+	  //send current level
 	  get 
 	  {
 	    return currentLevel;
 	  }
-	  //3
+	  //determine current level and set if active
 	  set
 	  {
 	    currentLevel = value;
@@ -56,6 +57,7 @@ public class ExamRoomData : MonoBehaviour
 	}
 
 
+	//Determine the next level
 	public ExamRoomLevel GetNextLevel()
 	{
 	  int currentLevelIndex = levels.IndexOf (currentLevel);
@@ -70,6 +72,7 @@ public class ExamRoomData : MonoBehaviour
 	  }
 	}
 
+	//Increase level
 	public void IncreaseLevel()
 	{
 	  int currentLevelIndex = levels.IndexOf(currentLevel);

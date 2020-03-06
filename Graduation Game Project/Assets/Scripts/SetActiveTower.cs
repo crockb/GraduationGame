@@ -21,6 +21,7 @@ public class SetActiveTower : MonoBehaviour
         
     }
 
+    //setting the tower as active
     public void setActiveTower()
     {
     	newText = (this.name);

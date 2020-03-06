@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-
+	//determine and load specific scenes
+	
 	public void PlayGame()
 	{
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

@@ -26,21 +26,22 @@ public class HealthBar : MonoBehaviour
     void Update()
     {
 
+        //Decline student health
         if (Time.time > nextActionTime && currentHealth > 0) 
         { 
             nextActionTime = Time.time + healthDeclineSeconds;
             currentHealth = currentHealth - 1;
         } 
 
+        //If student loses health, remove from game and increase dropout count
         if (currentHealth == 0)
         {
-            //AudioSource audioSource = gameObject.GetComponent<AudioSource>();
-            //audioSource.PlayOneShot(audioSource.clip);
             Destroy(gameObject);
             gameManager.DropOuts = GameStats.dropouts + 1;
 
         }
 
+        //set visual for health bar
         Vector3 tmpScale = theHealthBar.transform.localScale;
         tmpScale.x = currentHealth / maxHealth * originalScale;
         theHealthBar.transform.localScale = tmpScale;

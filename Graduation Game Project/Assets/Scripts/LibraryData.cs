@@ -35,15 +35,15 @@ public class LibraryData : MonoBehaviour
 	  CurrentLevel = levels[0];
 	}
 
-	//1
 	public LibraryLevel CurrentLevel
 	{
-	  //2
+	  //send current level
 	  get 
 	  {
 	    return currentLevel;
 	  }
-	  //3
+
+	  //determine current level and set if active
 	  set
 	  {
 	    currentLevel = value;
@@ -68,6 +68,7 @@ public class LibraryData : MonoBehaviour
 	}
 
 
+	//Determine next level
 	public LibraryLevel GetNextLevel()
 	{
 	  int currentLevelIndex = levels.IndexOf (currentLevel);
@@ -82,6 +83,7 @@ public class LibraryData : MonoBehaviour
 	  }
 	}
 
+	//Increase level
 	public void IncreaseLevel()
 	{
 	  int currentLevelIndex = levels.IndexOf(currentLevel);

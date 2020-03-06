@@ -30,20 +30,20 @@ public class StarbucksData : MonoBehaviour
         
     }
 
+    //set current level
 	void OnEnable()
 	{
 	  CurrentLevel = levels[0];
 	}
 
-	//1
 	public StarbucksLevel CurrentLevel
 	{
-	  //2
+	  //send current level
 	  get 
 	  {
 	    return currentLevel;
 	  }
-	  //3
+	  //determine current level and set if active
 	  set
 	  {
 	    currentLevel = value;
@@ -67,7 +67,7 @@ public class StarbucksData : MonoBehaviour
 	  }
 	}
 
-
+	//determine next level
 	public StarbucksLevel GetNextLevel()
 	{
 	  int currentLevelIndex = levels.IndexOf (currentLevel);
@@ -82,6 +82,7 @@ public class StarbucksData : MonoBehaviour
 	  }
 	}
 
+	//increase level
 	public void IncreaseLevel()
 	{
 	  int currentLevelIndex = levels.IndexOf(currentLevel);

@@ -25,11 +25,7 @@ public class RefuelStudents : MonoBehaviour
         StudentsInRange = new List<GameObject>();
         lastRefuelTime = Time.time;
 
-        //StarbucksData = gameObject.GetComponentInChildren<StarbucksData>();
         findTowerData();
-
-        //Debug.Log();
-
         
     }
 
@@ -43,7 +39,7 @@ public class RefuelStudents : MonoBehaviour
         // Will refuel student closest to destination until full and then will remove target from list when at full health
         if (StarbucksData != null)
         {
-            // 1
+            //Find student closest to goal
             float minimalStudentDistance = float.MaxValue;
             foreach (GameObject Student in StudentsInRange)
             {
@@ -54,8 +50,8 @@ public class RefuelStudents : MonoBehaviour
                     minimalStudentDistance = distanceToGoal;
                 }
             }
-            // 2
 
+            //Check that fire rate time has passed and refuel student
             if (target != null )
             {
                 //Transform healthBarTransform = target.transform.Find("HealthBar");
@@ -82,7 +78,7 @@ public class RefuelStudents : MonoBehaviour
         // Will refuel student with the lowest health first and will remove from list when they reach full health
         else if (LibraryData != null)
         {
-            // 1
+            // Find student with lowest health
             float minimalStudentHealth = float.MaxValue;
             foreach (GameObject Student in StudentsInRange)
             {
@@ -93,8 +89,8 @@ public class RefuelStudents : MonoBehaviour
                     minimalStudentHealth = lowestHealth;
                 }
             }
-            // 2
-
+            
+            //Check that fire rate time has passed and refuel student
             if (target != null )
             {
                 //Transform healthBarTransform = target.transform.Find("HealthBar");
@@ -119,10 +115,10 @@ public class RefuelStudents : MonoBehaviour
         }
 
         // Exam Room Tower:
-        // Will refuel student ...
+        // Will refuel student with lowest health first and remove from list if they reach full health
         else if (ExamRoomData != null)
         {
-            // 1
+            // Find student with lowest health
             float minimalStudentHealth = float.MaxValue;
             foreach (GameObject Student in StudentsInRange)
             {
@@ -133,8 +129,8 @@ public class RefuelStudents : MonoBehaviour
                     minimalStudentHealth = lowestHealth;
                 }
             }
-            // 2
 
+            //Check that fire rate time has passed and refuel student
             if (target != null )
             {
                 //Transform healthBarTransform = target.transform.Find("HealthBar");
@@ -156,16 +152,11 @@ public class RefuelStudents : MonoBehaviour
                     StudentsInRange.Remove(target);
                 }
 	        }
-
 	        
         }
     }
 
-    /*private void OnStudentDestroy(GameObject Student)
-    {
-        StudentsInRange.Remove(Student);
-    }*/
-
+    //add student to in range list when they enter the collider
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag.Equals("Student"))
@@ -177,6 +168,7 @@ public class RefuelStudents : MonoBehaviour
         }
     }
 
+    //remove student from in range list when they exit the collider
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.tag.Equals("Student"))
@@ -188,6 +180,7 @@ public class RefuelStudents : MonoBehaviour
         }
     }
 
+    //refuel the students
     private void Refuel(Collider2D target)
     {
         if (StarbucksData != null)
@@ -210,8 +203,6 @@ public class RefuelStudents : MonoBehaviour
             Animator animator =
                 StarbucksData.CurrentLevel.visualization.GetComponent<Animator>();
             animator.SetTrigger("fireRefuel");
-            AudioSource audioSource = gameObject.GetComponent<AudioSource>();
-            //audioSource.PlayOneRefuel(audioSource.clip);
         }
 
         if (LibraryData != null)
@@ -228,14 +219,11 @@ public class RefuelStudents : MonoBehaviour
             bulletComp.target = target.gameObject;
             bulletComp.startPosition = startPosition;
             bulletComp.targetPosition = AcquireTargetPosition(target.gameObject, newBullet);
-            //Debug.Log("Actual Target - x:" + bulletComp.targetPosition.x + " y:" + bulletComp.targetPosition.y);
             
             // fire the bullet
             Animator animator =
                 LibraryData.CurrentLevel.visualization.GetComponent<Animator>();
             animator.SetTrigger("fireRefuel");
-            AudioSource audioSource = gameObject.GetComponent<AudioSource>();
-            //audioSource.PlayOneRefuel(audioSource.clip);
 
         }
 
@@ -253,14 +241,11 @@ public class RefuelStudents : MonoBehaviour
             bulletComp.target = target.gameObject;
             bulletComp.startPosition = startPosition;
             bulletComp.targetPosition = AcquireTargetPosition(target.gameObject, newBullet);
-            //Debug.Log("Actual Target - x:" + bulletComp.targetPosition.x + " y:" + bulletComp.targetPosition.y);
             
             // 3 
             Animator animator =
                 ExamRoomData.CurrentLevel.visualization.GetComponent<Animator>();
             animator.SetTrigger("fireRefuel");
-            AudioSource audioSource = gameObject.GetComponent<AudioSource>();
-            //audioSource.PlayOneRefuel(audioSource.clip);
 
         }
     }

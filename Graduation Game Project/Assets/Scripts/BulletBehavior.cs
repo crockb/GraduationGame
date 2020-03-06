@@ -37,16 +37,18 @@ public class BulletBehavior : MonoBehaviour
                 HealthBar healthBar =
                     target.GetComponent<HealthBar>();
 
+                //check that "damage" doesnt exceed full health
                 if ((healthBar.currentHealth + Mathf.Max(damage, 0)) > 100)
                 {
                     healthBar.currentHealth = 100;
                 }
+                //add "damage" to student health
                 else
                 {
                     healthBar.currentHealth += Mathf.Max(damage, 0);
                 }
                 
-                
+            //remove bullets    
             Destroy(gameObject);
             }
         Destroy(gameObject);

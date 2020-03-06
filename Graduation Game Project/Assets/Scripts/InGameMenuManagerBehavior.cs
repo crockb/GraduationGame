@@ -31,7 +31,6 @@ public class InGameMenuManagerBehavior : MonoBehaviour
 	  	}
 	}
 
-	//For Business Level
 	// set the wave value in the menu
 	public int Wave
 	{
@@ -42,12 +41,14 @@ public class InGameMenuManagerBehavior : MonoBehaviour
 	  set
 	  {
 	    wave = value;
+	    //increase wave count and trigger "next wave" prompt
 	    if (wave < 10 && gameOver == false)
 	    {
 	    	nextWaveLabel.GetComponent<Animator>().SetTrigger("nextWave");
 	    	waveCountLabel.text = (wave + 1) + "/10";
 		}
 
+		//start next level if game is not over
 		else if (gameOver != false)
 		{
 			NextLevel();
@@ -61,30 +62,6 @@ public class InGameMenuManagerBehavior : MonoBehaviour
 
 	}
 
-	//for Education and Wildlife levels
-	// set the wave value in the menu
-	public int WaveInfo
-	{
-	  get
-	  {
-	    return wave;
-	  }
-	  set
-	  {
-	    wave = value;
-	    if (wave <= 10)
-	    {
-	    	nextWaveLabel.GetComponent<Animator>().SetTrigger("nextWave");
-	    	waveCountLabel.text = (wave + 1) + "/10";
-		}
-
-		else
-		{
-			NextLevel();
-		}
-	  }
-
-	}
 
 	// set the score value in the menu
 	public int Score
@@ -169,7 +146,7 @@ public class InGameMenuManagerBehavior : MonoBehaviour
     }
 
 
-    // execute game steps
+    //Trigger Game over prompts and load next scene
     void GameOver()
     {
     	if (gameOver == false)
@@ -182,6 +159,7 @@ public class InGameMenuManagerBehavior : MonoBehaviour
     	}    	
     }
 
+    //Trigger Game won prompts and load next scene
     void GameWon()
     {
     	gameWonLabel.GetComponent<Animator>().SetTrigger("gameWonTrigger");
@@ -190,6 +168,7 @@ public class InGameMenuManagerBehavior : MonoBehaviour
     	StartCoroutine(WaitToLoadNextScene());
     }
 
+    //Trigger Level complete prompts and load next scene
     void NextLevel()
     {
     	levelCompleteLabel.GetComponent<Animator>().SetTrigger("levelCompleteTrigger");
@@ -197,6 +176,7 @@ public class InGameMenuManagerBehavior : MonoBehaviour
     	StartCoroutine(WaitToLoadNextScene());
     }
 
+    //calculate the score
 	private int CalculateScore() {
 		int score = 0;
 		// Score (aka Gamestats.score) is being incremented in MoveStudent.cs

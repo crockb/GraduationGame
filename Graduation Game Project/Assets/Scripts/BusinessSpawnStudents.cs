@@ -35,7 +35,7 @@ public class BusinessSpawnStudents : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		// 1
+		// Check wave count
 		int currentWave = gameManager.Wave;
 		if (currentWave < waves.Length)
 		{

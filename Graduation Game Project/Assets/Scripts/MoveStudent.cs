@@ -23,6 +23,7 @@ public class MoveStudent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    	//determine rotation and movements
     	RotateIntoMoveDirection();
         
         Vector3 startPosition = Waypoints[StartElement].transform.position;
@@ -45,24 +46,22 @@ public class MoveStudent : MonoBehaviour
 		  	}
 		  	else
 		  	{
-		  		//add Money for students reaching desination
+		  		//add Money for students reaching desination then remove from game
 		  		//all students add $5
 		  		gameManager.Money += 5;
 				gameManager.Score += (int)gameObject.GetComponent<HealthBar>().currentHealth;
 		    	Destroy(gameObject);
-
-		    	AudioSource audioSource = gameObject.GetComponent<AudioSource>();
-		    	AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
-		    	
 		  	}
 		}
     }
 
+    //find waypoints to determine path
 	public GameObject[] GetPath()
 	{
 		return Waypoints;
 	}
 
+	//determines rotation for students to follow the path
 	private void RotateIntoMoveDirection()
 	{
 	  // set the positions of the next way points
@@ -80,6 +79,7 @@ public class MoveStudent : MonoBehaviour
 	  sprite.transform.rotation = Quaternion.AngleAxis(rotationAngle + 90, Vector3.forward);
 	}
 
+	//determine the distance left to the goal
 	public float DistanceToGoal()
     {
         float distance = 0;
