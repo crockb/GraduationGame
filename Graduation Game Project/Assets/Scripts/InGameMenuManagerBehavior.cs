@@ -10,8 +10,8 @@ public class InGameMenuManagerBehavior : MonoBehaviour
 	public Text waveCountLabel;
 	public Text dropOutsLabel;
 	public Text scoreLabel;
-	public Text gameOverLabel;
-	public Text gameWonLabel;
+	public GameObject gameOverLabel;
+	public GameObject gameWonLabel;
 	public GameObject nextWaveLabel;
 	public GameObject levelCompleteLabel;
 	public bool gameOver = false;
