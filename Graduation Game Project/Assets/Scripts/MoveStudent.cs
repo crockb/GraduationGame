@@ -29,7 +29,6 @@ public class MoveStudent : MonoBehaviour
     {
     	//determine rotation and movements
     	RotateIntoMoveDirection();
-        Debug.Log("Update - Start Element: " + StartElement);
         Vector3 startPosition = Waypoints[StartElement].transform.position;
 		Vector3 endPosition = Waypoints[StartElement + 1].transform.position;
 
