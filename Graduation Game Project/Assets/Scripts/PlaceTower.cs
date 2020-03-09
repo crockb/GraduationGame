@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Scripting;
 
+[Preserve]
 public class PlaceTower : MonoBehaviour
 {
 
@@ -36,7 +38,7 @@ public class PlaceTower : MonoBehaviour
 		//placing starbucks tower
 		if (CanPlaceStarbucks())
   		{
-    		//3
+    		
     		starbucks = (GameObject) 
       			Instantiate(starbucksPrefab, transform.position, Quaternion.identity);
     		gameManager.Money -= starbucks.GetComponent<StarbucksData>().CurrentLevel.cost;
@@ -54,7 +56,7 @@ public class PlaceTower : MonoBehaviour
 		//placing library tower
 		else if (CanPlaceLibrary())
   		{
-    		//3
+    		
     		library = (GameObject) 
       			Instantiate(libraryPrefab, transform.position, Quaternion.identity);
     		gameManager.Money -= library.GetComponent<LibraryData>().CurrentLevel.cost;
@@ -72,7 +74,7 @@ public class PlaceTower : MonoBehaviour
 		//placing exam room tower
 		else if (CanPlaceExamRoom())
   		{
-    		//3
+    		
     		examroom = (GameObject) 
       			Instantiate(examroomPrefab, transform.position, Quaternion.identity);
     		gameManager.Money -= examroom.GetComponent<ExamRoomData>().CurrentLevel.cost;

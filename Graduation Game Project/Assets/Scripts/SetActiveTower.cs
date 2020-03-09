@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.Scripting;
 
+[Preserve]
 public class SetActiveTower : MonoBehaviour
 {
 	public Text activeTowerLabel;

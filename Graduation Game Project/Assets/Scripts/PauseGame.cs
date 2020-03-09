@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Scripting;
 
+[Preserve]
 public class PauseGame : MonoBehaviour
 {
 	public void pauseGame()

@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Scripting;
 
+[Preserve]
 public class BulletBehavior : MonoBehaviour
 {
 

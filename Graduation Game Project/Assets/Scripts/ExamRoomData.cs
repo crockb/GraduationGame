@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Scripting;
 
+[Preserve]
 [System.Serializable]
 public class ExamRoomLevel
 {
@@ -12,7 +14,7 @@ public class ExamRoomLevel
 
 }
 
-
+[Preserve]
 public class ExamRoomData : MonoBehaviour
 {
 	public List<ExamRoomLevel> levels;

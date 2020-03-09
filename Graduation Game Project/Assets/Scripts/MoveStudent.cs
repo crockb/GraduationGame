@@ -1,22 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Scripting;
 
+[Preserve]
 public class MoveStudent : MonoBehaviour
 {
-	public int StartElement;
+	[HideInInspector]
 	public GameObject[] Waypoints;
 	public float Speed;
-	private float lastWaypointSwitchTime;
 	public Vector3 velocity;
 	public Vector3 currentPosition;
 
+	private int StartElement;
+	private float lastWaypointSwitchTime;
 	private InGameMenuManagerBehavior gameManager;
 	
     // Start is called before the first frame update
     void Start()
     {
         lastWaypointSwitchTime = Time.time;
+        StartElement = 0;
         gameManager = GameObject.Find("InGameMenuManager").GetComponent<InGameMenuManagerBehavior>();
     }
 
@@ -37,11 +41,19 @@ public class MoveStudent : MonoBehaviour
 		currentPosition = gameObject.transform.position;
 		velocity = Speed* ((endPosition-currentPosition).normalized);
 
-		if (gameObject.transform.position.Equals(endPosition)) 
+		/*
+		Debug.Log("GO.x:" + gameObject.transform.position.x + " GO.y:" + gameObject.transform.position.x + " GO.z:" + gameObject.transform.position.z);
+		Debug.Log("EP.x:" + endPosition.x + " EP.y:" + endPosition.y + " EP.z:" + endPosition.z);
+		Debug.Log("GO == EP:" + gameObject.transform.position.Equals(endPosition));
+		*/
+
+		if (gameObject.transform.position.Equals(endPosition))
 		{
 			if (StartElement < Waypoints.Length - 2)
 			{
-		    	StartElement++;
+				Debug.Log("Start Element Before: " + StartElement);
+		    	StartElement = StartElement + 1;
+		    	Debug.Log("Start Element After: " + StartElement);
 		    	lastWaypointSwitchTime = Time.time;
 		  	}
 		  	else
@@ -55,11 +67,6 @@ public class MoveStudent : MonoBehaviour
 		}
     }
 
-    //find waypoints to determine path
-	public GameObject[] GetPath()
-	{
-		return Waypoints;
-	}
 
 	//determines rotation for students to follow the path
 	private void RotateIntoMoveDirection()

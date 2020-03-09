@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Scripting;
 
+[Preserve]
 public class MainMenu : MonoBehaviour
 {
 	//determine and load specific scenes
