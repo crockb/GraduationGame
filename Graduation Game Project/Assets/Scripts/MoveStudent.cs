@@ -12,7 +12,8 @@ public class MoveStudent : MonoBehaviour
 	public Vector3 velocity;
 	public Vector3 currentPosition;
 
-	private int StartElement;
+	[HideInInspector]
+	public int StartElement = 0;
 	private float lastWaypointSwitchTime;
 	private InGameMenuManagerBehavior gameManager;
 	
@@ -20,7 +21,6 @@ public class MoveStudent : MonoBehaviour
     void Start()
     {
         lastWaypointSwitchTime = Time.time;
-        StartElement = 0;
         gameManager = GameObject.Find("InGameMenuManager").GetComponent<InGameMenuManagerBehavior>();
     }
 
@@ -29,7 +29,7 @@ public class MoveStudent : MonoBehaviour
     {
     	//determine rotation and movements
     	RotateIntoMoveDirection();
-        
+        Debug.Log("Update - Start Element: " + StartElement);
         Vector3 startPosition = Waypoints[StartElement].transform.position;
 		Vector3 endPosition = Waypoints[StartElement + 1].transform.position;
 
@@ -51,9 +51,9 @@ public class MoveStudent : MonoBehaviour
 		{
 			if (StartElement < Waypoints.Length - 2)
 			{
-				Debug.Log("Start Element Before: " + StartElement);
+				Debug.Log("Equal Positions: Start Element Before: " + StartElement);
 		    	StartElement = StartElement + 1;
-		    	Debug.Log("Start Element After: " + StartElement);
+		    	Debug.Log("Equals Position: Start Element After: " + StartElement);
 		    	lastWaypointSwitchTime = Time.time;
 		  	}
 		  	else
