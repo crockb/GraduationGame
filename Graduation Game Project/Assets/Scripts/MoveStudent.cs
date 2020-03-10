@@ -46,7 +46,7 @@ public class MoveStudent : MonoBehaviour
 		Debug.Log("GO == EP:" + gameObject.transform.position.Equals(endPosition));
 		*/
 
-		if (gameObject.transform.position.Equals(endPosition))
+		if (gameObject.transform.position == endPosition)
 		{
 			if (StartElement < Waypoints.Length - 2)
 			{
