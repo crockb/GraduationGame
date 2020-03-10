@@ -2,13 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Scripting;
 
+[Preserve]
 public class MainMenu : MonoBehaviour
 {
 	//determine and load specific scenes
 	
 	public void PlayGame()
 	{
+		// reset the game variables
+		GameStats.money = 100;
+		GameStats.dropouts = 0;
+		GameStats.score = 0;
+
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 	}
 

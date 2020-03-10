@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Scripting;
 
+[Preserve]
 [System.Serializable]
 public class StarbucksLevel
 {
@@ -12,6 +14,8 @@ public class StarbucksLevel
 
 }
 
+
+[Preserve]
 public class StarbucksData : MonoBehaviour
 {
 

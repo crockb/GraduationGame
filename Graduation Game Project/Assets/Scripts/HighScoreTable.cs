@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Scripting;
 
+[Preserve]
 public class HighScoreTable : MonoBehaviour
 {
     private Transform entryContainer;
@@ -115,13 +117,14 @@ public class HighScoreTable : MonoBehaviour
         entryTransform.Find("rowBackground").gameObject.SetActive(rank % 2 == 1);
 
         // Changes the color of the first ranked name
+        /*
         if (rank == 1)
         {
             entryTransform.Find("posText").GetComponent<Text>().color = Color.yellow;
             entryTransform.Find("scoreText").GetComponent<Text>().color = Color.yellow;
             entryTransform.Find("nameText").GetComponent<Text>().color = Color.yellow;
         }
-
+        */
         transformList.Add(entryTransform);
     }
 

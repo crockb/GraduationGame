@@ -70,7 +70,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f320610a5202f463d95611b2a7e3cd8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartElement: 0
   Waypoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -84,6 +83,7 @@ MonoBehaviour:
   Speed: 1
   velocity: {x: 0, y: 0, z: 0}
   currentPosition: {x: 0, y: 0, z: 0}
+  StartElement: 0
 --- !u!50 &7675715185875725392
 Rigidbody2D:
   serializedVersion: 4
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 100
-  healthDeclineSeconds: 0.17
+  healthDeclineSeconds: 0.16
 --- !u!1 &6029074912343034472
 GameObject:
   m_ObjectHideFlags: 0

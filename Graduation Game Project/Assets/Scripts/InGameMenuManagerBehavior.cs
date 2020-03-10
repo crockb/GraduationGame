@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Scripting;
 
+[Preserve]
 public class InGameMenuManagerBehavior : MonoBehaviour
 {
 	public Text moneyLabel;
 	public Text waveCountLabel;
 	public Text dropOutsLabel;
 	public Text scoreLabel;
-	public Text gameOverLabel;
-	public Text gameWonLabel;
+	public GameObject gameOverLabel;
+	public GameObject gameWonLabel;
 	public GameObject nextWaveLabel;
 	public GameObject levelCompleteLabel;
 	public bool gameOver = false;
@@ -152,8 +154,6 @@ public class InGameMenuManagerBehavior : MonoBehaviour
     	if (gameOver == false)
     	{
     		gameOverLabel.GetComponent<Animator>().SetTrigger("gameOverTrigger");
-    		gameOverLabel.GetComponent<Animator>().ResetTrigger("gameOverTrigger");
-    		levelCompleteLabel.GetComponent<Animator>().ResetTrigger("levelCompleteTrigger");
     		gameOver = true;
     		StartCoroutine(WaitToLoadNextScene());
     	}    	
@@ -163,7 +163,6 @@ public class InGameMenuManagerBehavior : MonoBehaviour
     void GameWon()
     {
     	gameWonLabel.GetComponent<Animator>().SetTrigger("gameWonTrigger");
-    	levelCompleteLabel.GetComponent<Animator>().ResetTrigger("gameWonTrigger");
     	gameOver = true;
     	StartCoroutine(WaitToLoadNextScene());
     }
@@ -172,7 +171,7 @@ public class InGameMenuManagerBehavior : MonoBehaviour
     void NextLevel()
     {
     	levelCompleteLabel.GetComponent<Animator>().SetTrigger("levelCompleteTrigger");
-    	levelCompleteLabel.GetComponent<Animator>().ResetTrigger("levelCompleteTrigger");
+    	Money = 100;
     	StartCoroutine(WaitToLoadNextScene());
     }
 

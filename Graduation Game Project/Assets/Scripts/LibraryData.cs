@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Scripting;
 
+[Preserve]
 [System.Serializable]
 public class LibraryLevel
 {
@@ -12,6 +14,8 @@ public class LibraryLevel
 
 }
 
+
+[Preserve]
 public class LibraryData : MonoBehaviour
 {
 
