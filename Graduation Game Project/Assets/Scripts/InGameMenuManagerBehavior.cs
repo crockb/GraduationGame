@@ -154,8 +154,6 @@ public class InGameMenuManagerBehavior : MonoBehaviour
     	if (gameOver == false)
     	{
     		gameOverLabel.GetComponent<Animator>().SetTrigger("gameOverTrigger");
-    		gameOverLabel.GetComponent<Animator>().ResetTrigger("gameOverTrigger");
-    		levelCompleteLabel.GetComponent<Animator>().ResetTrigger("levelCompleteTrigger");
     		gameOver = true;
     		StartCoroutine(WaitToLoadNextScene());
     	}    	
@@ -165,7 +163,6 @@ public class InGameMenuManagerBehavior : MonoBehaviour
     void GameWon()
     {
     	gameWonLabel.GetComponent<Animator>().SetTrigger("gameWonTrigger");
-    	levelCompleteLabel.GetComponent<Animator>().ResetTrigger("gameWonTrigger");
     	gameOver = true;
     	StartCoroutine(WaitToLoadNextScene());
     }
@@ -174,7 +171,7 @@ public class InGameMenuManagerBehavior : MonoBehaviour
     void NextLevel()
     {
     	levelCompleteLabel.GetComponent<Animator>().SetTrigger("levelCompleteTrigger");
-    	levelCompleteLabel.GetComponent<Animator>().ResetTrigger("levelCompleteTrigger");
+    	Money = 100;
     	StartCoroutine(WaitToLoadNextScene());
     }
 

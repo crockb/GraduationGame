@@ -11,6 +11,11 @@ public class MainMenu : MonoBehaviour
 	
 	public void PlayGame()
 	{
+		// reset the game variables
+		GameStats.money = 100;
+		GameStats.dropouts = 0;
+		GameStats.score = 0;
+
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 	}
 
