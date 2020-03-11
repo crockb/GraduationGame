@@ -13,7 +13,7 @@ public class HighScoreTable : MonoBehaviour
     private Transform entryTemplate;
     private List<Transform> highScoreEntryTransformList;
     //private string path = "Assets/HighScores/highScores.json"; // Use this one for editor
-    private string path = "Build/highScores.json"; // Use this one for build
+    private string path = "highScores.json"; // Use this one for build
 
     private void Awake()
     {
