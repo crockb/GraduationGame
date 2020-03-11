@@ -21,10 +21,6 @@ public class HighScoreTable : MonoBehaviour
 
         entryTemplate.gameObject.SetActive(false);
 
-        //DeleteAllHighScores();
-
-        //AddHighScoreEntry(40000000, "C"); // 3
-        //AddHighScoreEntry(20000000, "A"); // 1
 
         // Grab the data from PlayerPrefs if the key exists
         if (PlayerPrefs.HasKey("highScoreTable"))

@@ -56,7 +56,6 @@ public class BusinessSpawnStudents : MonoBehaviour
 		    newStudent.transform.position = new Vector3(-1000,0,0);
 
     		newStudent.GetComponent<MoveStudent>().Waypoints = waves[currentWave].waypoints;
-    		Debug.Log("Waypoints = " + waves[currentWave].waypoints.Length);
 		    studentsSpawned++;
 		  }
 
