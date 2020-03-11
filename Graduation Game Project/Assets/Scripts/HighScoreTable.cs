@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Scripting;
+using System.IO;
+using Newtonsoft.Json;
 
 [Preserve]
 public class HighScoreTable : MonoBehaviour
@@ -14,62 +16,57 @@ public class HighScoreTable : MonoBehaviour
     private void Awake()
     {
         string jsonString = "";
-        HighScores highScores = new HighScores();
+        HighScores highScores;
 
         entryContainer = transform.Find("highScoreEntryContainer");
         entryTemplate = entryContainer.Find("highScoreEntryTemplate");
 
         entryTemplate.gameObject.SetActive(false);
 
+        jsonString = ReadFile();
+        // Convert the json string into a HighScores object
+        highScores = JsonConvert.DeserializeObject<HighScores>(jsonString);
 
-        // Grab the data from PlayerPrefs if the key exists
-        if (PlayerPrefs.HasKey("highScoreTable"))
-        {
-            jsonString = PlayerPrefs.GetString("highScoreTable");
-            highScores = JsonUtility.FromJson<HighScores>(jsonString);
-
-            // Calls the member function to sort the list by the score
-            highScores.sort();
+        // Calls the member function to sort the list by the score
+        highScores.sort();
         
-            // Create the transforms
-            highScoreEntryTransformList = new List<Transform>();
-            // Limits the list to 10 or however many items there are
-            for (int i = 0; i < highScores.highScoreEntryList.Count && i < 10; i++)
-            {
-                CreateHighScoreEntryTransform(highScores.highScoreEntryList[i], entryContainer, highScoreEntryTransformList);
-            }
+        // Create the transforms
+        highScoreEntryTransformList = new List<Transform>();
+        // Limits the list to 10 or however many items there are
+        for (int i = 0; i < highScores.highScoreEntryList.Count && i < 10; i++)
+        {
+            CreateHighScoreEntryTransform(highScores.highScoreEntryList[i], entryContainer, highScoreEntryTransformList);
         }
     }
 
     // Returns true if okay to add to high scores, false otherwise
     public bool okayToAddToHighScores(int score)
     {
-        // Grab the data from PlayerPrefs if the key exists
-        if (PlayerPrefs.HasKey("highScoreTable"))
+        string jsonString = ReadFile();
+        // Check if string is empty
+        if (jsonString == "") 
         {
-            string jsonString = PlayerPrefs.GetString("highScoreTable");
-            HighScores highScores = JsonUtility.FromJson<HighScores>(jsonString);
+            return true;
+        }
 
-            // Calls the member function to sort the list by the score
-            highScores.sort();
+        // Convert the json string into a HighScores object
+        HighScores highScores = JsonConvert.DeserializeObject<HighScores>(jsonString);
 
-            int count = highScores.highScoreEntryList.Count;
+        // Calls the member function to sort the list by the score
+        highScores.sort();
 
-            // If the count is equal to 10 then check the lowest score
-            if (count == 10)
-            {
-                if (score > highScores.highScoreEntryList[count].score)
-                {
-                    return true;
-                }
-            }
-            // If the count is less than 10 then we have space to add no matter what
-            else if (count < 10)
+        int count = highScores.highScoreEntryList.Count;
+
+        // If the count is equal to 10 then check the lowest score
+        if (count == 10)
+        {
+            if (score > highScores.highScoreEntryList[count].score)
             {
                 return true;
             }
         }
-        else // the PlayerPrefs hasn't been created yet so add the high score
+        // If the count is less than 10 then we have space to add no matter what
+        else if (count < 10)
         {
             return true;
         }
@@ -124,44 +121,36 @@ public class HighScoreTable : MonoBehaviour
         transformList.Add(entryTransform);
     }
 
-    // Deletes all the entries with the key highScoreTable
-    private void DeleteAllHighScores()
-    {
-        if (PlayerPrefs.HasKey("highScoreTable"))
-        {
-            PlayerPrefs.DeleteKey("highScoreTable");
-            PlayerPrefs.Save();
-        }
-    }
-
     // Adds an entry to the highScoreTable
     public void AddHighScoreEntry(int score, string name)
     {
-        string jsonString = "";
+        string jsonString = ReadFile();
+        // Check if the file is empty
+        if (jsonString == "") 
+        {
+            WriteFile("{\"highScoreEntryList\": [{\"score\": " + score + "," + "\"name\": " + "\"" + name + "}]}");
+            return;
+        }
         // Create HighScores object
         HighScores highScores = new HighScores();
         // Create HighScoreEntry
         HighScoreEntry highScoreEntry = new HighScoreEntry { score = score, name = name };
-
-        // Load saved HighScores if they exist
-        if (PlayerPrefs.HasKey("highScoreTable"))
-        {
-            jsonString = PlayerPrefs.GetString("highScoreTable");
-            highScores = JsonUtility.FromJson<HighScores>(jsonString);
-        }
+        // Convert the json string into a HighScores object
+        highScores = JsonConvert.DeserializeObject<HighScores>(jsonString);
 
         // Add new entry to HighScores
         highScores.highScoreEntryList.Add(highScoreEntry);
         
         // Save updated HighScores
-        string json = JsonUtility.ToJson(highScores);
-        PlayerPrefs.SetString("highScoreTable", json);
-        PlayerPrefs.Save();
+        string json = JsonConvert.SerializeObject(highScores);
+
+        // Write back to file
+        WriteFile(json);
     }
 
     private class HighScores 
     {
-        public List<HighScoreEntry> highScoreEntryList = new List<HighScoreEntry>();
+        public List<HighScoreEntry> highScoreEntryList { get; set; }
 
         public void sort()
         {
@@ -184,7 +173,20 @@ public class HighScoreTable : MonoBehaviour
     [System.Serializable]
     private class HighScoreEntry 
     {
-        public int score = 0;
-        public string name = "";
+        public int score { get; set; }
+        public string name { get; set; }
+    }
+
+    private string ReadFile()
+    { 
+        string path = "Assets/HighScores/highScores.json";
+        string jsonText = File.ReadAllText(path);
+        return jsonText;
+    }
+
+    private void WriteFile(string json)
+    {
+        string path = "Assets/HighScores/highScores.json";
+        File.WriteAllText(path, json);
     }
 }
