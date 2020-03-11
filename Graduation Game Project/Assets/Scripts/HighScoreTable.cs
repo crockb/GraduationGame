@@ -128,7 +128,7 @@ public class HighScoreTable : MonoBehaviour
         // Check if the file is empty
         if (jsonString == "") 
         {
-            WriteFile("{\"highScoreEntryList\": [{\"score\": " + score + "," + "\"name\": " + "\"" + name + "}]}");
+            WriteFile("{\"highScoreEntryList\": [{\"score\": " + score + ",\"name\": " + "\"" + name + "\"}]}");
             return;
         }
         // Create HighScores object
