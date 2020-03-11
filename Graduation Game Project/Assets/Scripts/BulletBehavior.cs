@@ -30,7 +30,7 @@ public class BulletBehavior : MonoBehaviour
         gameObject.transform.position = Vector3.Lerp(startPosition, targetPosition, timeInterval * speed / distance);
 
         // 2 
-        if (gameObject.transform.position.Equals(targetPosition))
+        if (gameObject.transform.position == targetPosition)
         {
             if (target != null)
             {

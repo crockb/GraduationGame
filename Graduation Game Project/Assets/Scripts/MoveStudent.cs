@@ -40,19 +40,12 @@ public class MoveStudent : MonoBehaviour
 		currentPosition = gameObject.transform.position;
 		velocity = Speed* ((endPosition-currentPosition).normalized);
 
-		/*
-		Debug.Log("GO.x:" + gameObject.transform.position.x + " GO.y:" + gameObject.transform.position.x + " GO.z:" + gameObject.transform.position.z);
-		Debug.Log("EP.x:" + endPosition.x + " EP.y:" + endPosition.y + " EP.z:" + endPosition.z);
-		Debug.Log("GO == EP:" + gameObject.transform.position.Equals(endPosition));
-		*/
 
 		if (gameObject.transform.position == endPosition)
 		{
 			if (StartElement < Waypoints.Length - 2)
 			{
-				Debug.Log("Equal Positions: Start Element Before: " + StartElement);
 		    	StartElement = StartElement + 1;
-		    	Debug.Log("Equals Position: Start Element After: " + StartElement);
 		    	lastWaypointSwitchTime = Time.time;
 		  	}
 		  	else
