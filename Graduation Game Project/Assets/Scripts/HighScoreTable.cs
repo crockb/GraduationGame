@@ -12,6 +12,8 @@ public class HighScoreTable : MonoBehaviour
     private Transform entryContainer;
     private Transform entryTemplate;
     private List<Transform> highScoreEntryTransformList;
+    //private string path = "Assets/HighScores/highScores.json"; // Use this one for editor
+    private string path = "Build/highScores.json"; // Use this one for build
 
     private void Awake()
     {
@@ -179,14 +181,12 @@ public class HighScoreTable : MonoBehaviour
 
     private string ReadFile()
     { 
-        string path = "Assets/HighScores/highScores.json";
         string jsonText = File.ReadAllText(path);
         return jsonText;
     }
 
     private void WriteFile(string json)
     {
-        string path = "Assets/HighScores/highScores.json";
         File.WriteAllText(path, json);
     }
 }
