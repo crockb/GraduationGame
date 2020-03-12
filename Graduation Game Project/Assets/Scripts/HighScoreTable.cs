@@ -12,11 +12,12 @@ public class HighScoreTable : MonoBehaviour
     private Transform entryContainer;
     private Transform entryTemplate;
     private List<Transform> highScoreEntryTransformList;
-    //private string path = "Assets/HighScores/highScores.json"; // Use this one for editor
-    private string path = Application.persistentDataPath + "/highScores.json"; // Use this one for build
+    private string path;
 
     private void Awake()
     {
+        //path = "Assets/HighScores/highScores.json"; // Use this one for editor
+        path = Application.persistentDataPath + "/highScores.json"; // Use this one for build
         string jsonString = "";
         HighScores highScores;
 
