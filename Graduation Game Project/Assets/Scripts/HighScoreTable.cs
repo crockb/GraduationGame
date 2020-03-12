@@ -12,12 +12,11 @@ public class HighScoreTable : MonoBehaviour
     private Transform entryContainer;
     private Transform entryTemplate;
     private List<Transform> highScoreEntryTransformList;
-    private string path;
 
     private void Awake()
     {
-        //path = "Assets/HighScores/highScores.json"; // Use this one for editor
-        path = Application.persistentDataPath + "/highScores.json"; // Use this one for build
+        //string path = "Assets/HighScores/highScores.json"; // Use this one for editor
+        string path = Application.persistentDataPath + "/highScores.json"; // Use this one for build
         string jsonString = "";
         HighScores highScores;
 
@@ -27,6 +26,10 @@ public class HighScoreTable : MonoBehaviour
         entryTemplate.gameObject.SetActive(false);
 
         jsonString = ReadFile();
+        if (jsonString == "")
+        {
+            return;
+        }
         // Convert the json string into a HighScores object
         highScores = JsonConvert.DeserializeObject<HighScores>(jsonString);
 
@@ -182,10 +185,13 @@ public class HighScoreTable : MonoBehaviour
 
     private string ReadFile()
     { 
+        //string path = "Assets/HighScores/highScores.json"; // Use this one for editor
+        string path = Application.persistentDataPath + "/highScores.json"; // Use this one for build
         string jsonText = "";
         if (!File.Exists(path))
         {
             File.Create(path);
+            Debug.Log("The file was created!");
         }
         else
         {
@@ -196,6 +202,8 @@ public class HighScoreTable : MonoBehaviour
 
     private void WriteFile(string json)
     {
+        //string path = "Assets/HighScores/highScores.json"; // Use this one for editor
+        string path = Application.persistentDataPath + "/highScores.json"; // Use this one for build
         if (File.Exists(path)) 
         {
             File.WriteAllText(path, json);
