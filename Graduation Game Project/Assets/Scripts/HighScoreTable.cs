@@ -13,7 +13,7 @@ public class HighScoreTable : MonoBehaviour
     private Transform entryTemplate;
     private List<Transform> highScoreEntryTransformList;
     //private string path = "Assets/HighScores/highScores.json"; // Use this one for editor
-    private string path = "highScores.json"; // Use this one for build
+    private string path = Application.persistentDataPath + "/highScores.json"; // Use this one for build
 
     private void Awake()
     {
@@ -181,12 +181,27 @@ public class HighScoreTable : MonoBehaviour
 
     private string ReadFile()
     { 
-        string jsonText = File.ReadAllText(path);
+        string jsonText = "";
+        if (!File.Exists(path))
+        {
+            File.Create(path);
+        }
+        else
+        {
+            jsonText = File.ReadAllText(path);
+        }
         return jsonText;
     }
 
     private void WriteFile(string json)
     {
-        File.WriteAllText(path, json);
+        if (File.Exists(path)) 
+        {
+            File.WriteAllText(path, json);
+        }
+        else
+        {
+            Debug.Log("The file doesn't exist!");
+        }
     }
 }
